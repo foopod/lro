@@ -1,4 +1,6 @@
-http://mathsonline.org/game/jam.html?2
+![](graphics/title.bmp)
+
+## To Do List
 
 + Save Progress
 + Level Select Screen
@@ -8,3 +10,7 @@ http://mathsonline.org/game/jam.html?2
 + Sliding animations
 + Success Screen
 + proper bg
+
+## Puzzle Source
+
+http://mathsonline.org/game/jam.html?2
