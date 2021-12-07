@@ -9,7 +9,6 @@
 + Different Suitcase select
 + Sliding animations
 + Success Screen
-+ proper bg
 
 ## Puzzle Source
 
