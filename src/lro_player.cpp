@@ -35,7 +35,12 @@ namespace lro {
         return false;
     }
 
-    bool Player::has_finished(){
+    bool Player::has_finished(int level){
+        if(_has_finished){
+            if(level > _state.get_last_completed_level()){
+                _state.completeLevel(level);
+            }
+        }
         return _has_finished;
     }
 

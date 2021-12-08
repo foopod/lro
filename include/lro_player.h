@@ -2,6 +2,7 @@
 #define LRO_PLAYER_H
 
 #include "lro_luggage.h"
+#include "lro_state.h"
 
 #include "bn_optional.h"
 #include "bn_vector.h"
@@ -14,11 +15,12 @@ namespace lro
             bn::optional<bn::vector<Luggage,16>*> _luggage_list;
             int _selected = 0;
             bool _has_finished = false;
+            State _state;
 
         public : 
             Player(bn::vector<Luggage,16>& luggage_list);
             void update();
-            bool has_finished();
+            bool has_finished(int level);
     };
 }
 

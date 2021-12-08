@@ -21,7 +21,7 @@ namespace lro {
 
         while(true){
             if(display_time > 500){
-                return Scene::LEVEL1;
+                return Scene::LevelSelect;
             }
             bn::core::update();
             display_time++;
