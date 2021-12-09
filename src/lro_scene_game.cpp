@@ -10,6 +10,7 @@
 #include "bn_log.h"
 
 #include "bn_regular_bg_items_bg.h"
+#include "bn_sprite_items_done.h"
 
 namespace lro
 {
@@ -536,10 +537,28 @@ namespace lro
 
         lro::Player player = lro::Player(luggage_list);
 
+        bool animation_ended = false;
+
+        bn::sprite_ptr done = bn::sprite_items::done.create_sprite(72, 30);
+        done.set_visible(false);
+
+        int count_after_finish = 0;
+
         while (true)
         {
             if (player.has_finished(level))
             {
+                done.set_visible(true);
+            }
+
+            if(done.visible()){
+                if(count_after_finish > 120){
+                    animation_ended = true;
+                }
+                ++count_after_finish;
+            }
+
+            if(animation_ended){
                 if (level < 11)
                 {
                     return Scene::SelectTraining;

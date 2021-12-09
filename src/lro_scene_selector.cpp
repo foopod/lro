@@ -86,11 +86,12 @@ namespace lro {
 
         // get state from sram
         int done_levels = state.get_last_completed_level();
+        int difficulty_sprite = 1 + startingLevel/10;
 
         // draw boxes and labels
         for (int i = startingLevel; i < (startingLevel + 5); i++){
             if(done_levels + 1 >= i){
-                boxes.push_back(bn::sprite_items::box.create_sprite((i-1)%10 * 32 - 64, 0+1, 1));
+                boxes.push_back(bn::sprite_items::box.create_sprite((i-1)%10 * 32 - 64, 0+1, difficulty_sprite));
             } else {
                 boxes.push_back(bn::sprite_items::box.create_sprite((i-1)%10 * 32 - 64, 0+1, 0));
             }
@@ -98,7 +99,7 @@ namespace lro {
         }
         for (int i = (startingLevel + 5); i < (startingLevel+10); i++){
             if(done_levels + 1 >= i){
-                boxes.push_back(bn::sprite_items::box.create_sprite(((i-1)%10-5) * 32 - 64, 30+1, 1));
+                boxes.push_back(bn::sprite_items::box.create_sprite(((i-1)%10-5) * 32 - 64, 30+1, difficulty_sprite));
             } else {
                 boxes.push_back(bn::sprite_items::box.create_sprite(((i-1)%10-5) * 32 - 64, 30+1, 0));
             }
@@ -112,7 +113,7 @@ namespace lro {
 
         while(true){
             if(bn::keypad::a_pressed()){
-                if(selected+startingLevel-1 < state.get_last_completed_level() + 1 || true){ //todo remove true block levels
+                if(selected+startingLevel-1 < state.get_last_completed_level() + 1){ //todo remove true block levels
                     switch(selected+startingLevel-1){
                         case 0 : return Scene::LEVEL1;
                         case 1 : return Scene::LEVEL2;

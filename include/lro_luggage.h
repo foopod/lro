@@ -4,6 +4,7 @@
 #include "bn_fixed_point.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_item.h"
+#include "bn_sprite_actions.h"
 
 #include "lro_orientation.h"
 
@@ -28,10 +29,12 @@ namespace lro {
             int length();
             bool is_target();
 
-            void moveLeft();
-            void moveRight();
-            void moveUp();
-            void moveDown();
+            bn::sprite_move_to_action moveLeft();
+            bn::sprite_move_to_action moveRight();
+            bn::sprite_move_to_action moveUp();
+            bn::sprite_move_to_action moveDown();
+
+            bn::sprite_move_to_action slide_to_end();
 
             void hightlight(bool is_highlighted);
     };

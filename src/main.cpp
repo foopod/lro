@@ -16,7 +16,7 @@
 int main()
 {
     bn::core::init();
-    lro::Scene scene = lro::Scene::LevelSelect;
+    lro::Scene scene = lro::Scene::Title;
 
     bn::sprite_text_generator text_generator(lro::fixed_8x8_sprite_font);
 

@@ -2,6 +2,7 @@
 
 #include "bn_fixed.h"
 #include "bn_random.h"
+#include "bn_sprite_actions.h"
 
 #include "bn_sprite_items_suitcase12a.h"
 #include "bn_sprite_items_suitcase12b.h"
@@ -27,6 +28,7 @@
 
 namespace lro {
 
+    namespace{
     [[nodiscard]] bn::fixed_point gridToScreen(bn::fixed_point gridPos, lro::Orientation orientation, int length)
     {
         // screen offset
@@ -49,6 +51,7 @@ namespace lro {
         }
 
         return bn::fixed_point(sx, sy);
+    }
     }
 
 
@@ -168,43 +171,47 @@ namespace lro {
         return _is_target;
     }
 
-    void Luggage::moveLeft(){
+    bn::sprite_move_to_action Luggage::moveLeft(){
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() - 1 >= 0){
                 _pos.set_x(_pos.x() - 1);
-                _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+                return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
     }
 
-    void Luggage::moveRight(){
+    bn::sprite_move_to_action Luggage::moveRight(){
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() + (_length - 1) + 1 <= 5){
                 _pos.set_x(_pos.x() + 1);
-                _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+                return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             } else if(_is_target){
                 _pos.set_x(_pos.x() + 1);
                 _sprite.set_position(gridToScreen(_pos, _orientation, _length));
             }
         }
+        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
     }
 
-    void Luggage::moveUp(){
+    bn::sprite_move_to_action Luggage::moveUp(){
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() - 1 >= 0){
                 _pos.set_y(_pos.y() - 1);
-                _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+                return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
     }
     
-    void Luggage::moveDown(){
+    bn::sprite_move_to_action Luggage::moveDown(){
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() + (_length - 1) + 1 <= 5){
                 _pos.set_y(_pos.y() + 1);
-                _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+                return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
     }
 
     void Luggage::hightlight(bool is_highlighted){
@@ -214,6 +221,10 @@ namespace lro {
         } else {
             _sprite.set_item(_sprite_item, 0);
         }
+    }
+
+    bn::sprite_move_to_action Luggage::slide_to_end(){
+        return bn::sprite_move_to_action(_sprite, 60, 72, _sprite.position().y());
     }
     
 }
