@@ -21,7 +21,7 @@ namespace lro {
         int sx = -14;
         int sy = -17;
 
-        sy += selected * 16;
+        sy += selected * 12;
 
         return bn::fixed_point(sx, sy);
     }
@@ -33,7 +33,7 @@ namespace lro {
         bn::regular_bg_ptr bg = bn::regular_bg_items::blank_bg.create_bg(0, 0);
 
         int selected = 0;
-        int max_levels = 5;
+        int max_levels = 5+1;
 
         State state;
         
@@ -42,10 +42,11 @@ namespace lro {
 
         _text_generator->set_left_alignment();
         _text_generator->generate(10, -16, "Trainee", labels);
-        _text_generator->generate(10, 0, "Recruit", labels);
-        _text_generator->generate(10, 16, "Senior", labels);
-        _text_generator->generate(10, 32, "Expert", labels);
-        _text_generator->generate(10, 48, "Officer", labels);
+        _text_generator->generate(10, -4, "Recruit", labels);
+        _text_generator->generate(10, 8, "Senior", labels);
+        _text_generator->generate(10, 20, "Expert", labels);
+        _text_generator->generate(10, 32, "Officer", labels);
+        _text_generator->generate(10, 44, "Help", labels);
 
         _text_generator->set_right_alignment();
         _text_generator->generate(112, 72, "α Select", labels);
@@ -53,10 +54,10 @@ namespace lro {
         bn::sprite_ptr cursor = bn::sprite_items::cursor.create_sprite(80, -30);
 
         bn::sprite_ptr trainee_lock = bn::sprite_items::lock.create_sprite(0, -16,0);
-        bn::sprite_ptr recruit_lock = bn::sprite_items::lock.create_sprite(0, 0,1);
-        bn::sprite_ptr senior_lock = bn::sprite_items::lock.create_sprite(0, 16,1);
-        bn::sprite_ptr expert_lock = bn::sprite_items::lock.create_sprite(0, 32,1);
-        bn::sprite_ptr officer_lock = bn::sprite_items::lock.create_sprite(0, 48,1);
+        bn::sprite_ptr recruit_lock = bn::sprite_items::lock.create_sprite(0, -4,1);
+        bn::sprite_ptr senior_lock = bn::sprite_items::lock.create_sprite(0, 8,1);
+        bn::sprite_ptr expert_lock = bn::sprite_items::lock.create_sprite(0, 20,1);
+        bn::sprite_ptr officer_lock = bn::sprite_items::lock.create_sprite(0, 32,1);
 
         bn::sprite_ptr red3d = bn::sprite_items::red3d.create_sprite(-66, 8,0);
         bn::sprite_animate_action<64> action = bn::create_sprite_animate_action_forever(red3d, 4, bn::sprite_items::red3d.tiles_item(), 0, 1, 2, 3,4,5,6,7,8,9,10,
@@ -135,6 +136,7 @@ namespace lro {
                             return Scene::SelectOfficer;
                         }
                         break;
+                    case 5 : return Scene::Tutorial;
                 }
             }
 

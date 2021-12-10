@@ -6,6 +6,7 @@ namespace lro
     enum class Scene
     {
         Title,
+        Tutorial,
         LevelSelect,
         SelectTraining,
         SelectRecruit,

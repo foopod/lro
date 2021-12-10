@@ -9,6 +9,7 @@
 #include "lro_scene.h"
 #include "lro_rank.h"
 #include "lro_scene_title.h"
+#include "lro_scene_tutorial.h"
 #include "lro_scene_level_select.h"
 #include "lro_scene_selector.h"
 #include "lro_scene_game.h"
@@ -26,6 +27,11 @@ int main()
         {
             lro::Title title = lro::Title();
             scene = title.execute();
+        }
+        else if (scene == lro::Scene::Tutorial)
+        {
+            lro::Tutorial level = lro::Tutorial();
+            scene = level.execute();
         }
         else if (scene == lro::Scene::LevelSelect)
         {
