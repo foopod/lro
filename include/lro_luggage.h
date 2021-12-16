@@ -2,6 +2,7 @@
 #define LRO_LUGGAGE_H
 
 #include "bn_fixed_point.h"
+#include "bn_optional.h"
 #include "bn_sprite_ptr.h"
 #include "bn_sprite_item.h"
 #include "bn_sprite_actions.h"
@@ -23,16 +24,16 @@ namespace lro {
             
         public :
             Luggage(bn::fixed_point pos, lro::Orientation orientation, int length, int palette);
-            Luggage(bn::fixed_point pos, bool isTarget);
+            Luggage(bn::fixed_point pos, bool isRedTarget);
             bn::fixed_point pos();
             lro::Orientation orientation();
             int length();
             bool is_target();
 
-            bn::sprite_move_to_action moveLeft();
-            bn::sprite_move_to_action moveRight();
-            bn::sprite_move_to_action moveUp();
-            bn::sprite_move_to_action moveDown();
+            bn::optional<bn::sprite_move_to_action> moveLeft();
+            bn::optional<bn::sprite_move_to_action> moveRight();
+            bn::optional<bn::sprite_move_to_action> moveUp();
+            bn::optional<bn::sprite_move_to_action> moveDown();
 
             bn::sprite_move_to_action slide_to_end();
 

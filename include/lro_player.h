@@ -15,7 +15,7 @@ namespace lro
     class Player
     {
         private :
-            bn::optional<bn::vector<Luggage,16>*> _luggage_list;
+            bn::vector<Luggage,16> _luggage_list;
             int _selected = 0;
             bn::sprite_ptr _cursor_sprite = bn::sprite_items::box_cursor.create_sprite(0, 0);
             bn::fixed_point _cursor_pos = bn::fixed_point(0,0);
@@ -23,12 +23,19 @@ namespace lro
             bool _done = false; // puzzle solved, but level outro animation playing
             State _state;
 
+            bn::fixed_point _old_pos = bn::fixed_point(0,0);
+            int _moves_so_far = 0;
+
+
             bn::optional<bn::sprite_move_to_action> _slide_action;
 
         public : 
-            Player(bn::vector<Luggage,16>& luggage_list);
+            Player(int level);
             void update();
             bool has_finished(int level);
+            int moves(){
+                return _moves_so_far;
+            }
     };
 }
 

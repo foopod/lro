@@ -1,21 +1,19 @@
-#ifndef LRO_SCENE_GAME_H
-#define LRO_SCENE_GAME_H
+#ifndef LRO_SCENE_ACADEMY_H
+#define LRO_SCENE_ACADEMY_H
 
 #include "lro_scene.h"
-
 #include "bn_fixed_point.h"
 #include "bn_sprite_text_generator.h"
 
 namespace lro
 {
-    class Game
+    class Academy
     {       
         private:
             bn::sprite_text_generator* _text_generator;
-
         public:
-            Game(bn::sprite_text_generator& text_generator);
-            lro::Scene execute(int level);
+            Academy(bn::sprite_text_generator& text_generator);
+            int execute();
     };
 }
 

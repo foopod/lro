@@ -35,7 +35,7 @@ def getPuzzle(id):
     for line in output : 
         print(line)
 
-for x in range(1,40) :
+for x in range(1,41) :
     print("case %s : "%(x))
     getPuzzle(x)
     print("return luggage_list;")

@@ -2,15 +2,23 @@
 
 ## To Do List
 
-1. ✔️ Level Select Screens - 50+ puzzles and to select between (4 or 5 difficulty levels).
-2. ✔️ Different Suitcase select - having a cursor to select the item you want to move instead of tabbing through the suitcases will be a lot easier for most players.
-3. ✔️ Success Animation - making it more obvious when you have completed a puzzle, rather than just loading the next one.
-4. ❌ Tutorial - how to play
-5. ✔️ Save Progress - puzzle unlocking
-6. ✔️ More Puzzles
-7. ❌ Sliding animations of luggage
-8. ✔️ Dialog screens
-9. ✔️ Lock harder ranks until easier ranks are completed
++ Make an Options Menu
+    + Brightness
+    + Reset Level Progress
+    + Replay Tutorial
+    + Credits
++ Main Menu
++ Add sound effects
++ Add music
++ Colour Blind Mode
+
+## What if there was?
+
++ A block that could rotate? Becoming a horizontal or a vertical block?
++ A block that could only be slid along the whole way
++ A block that could change sizes?
++ A time limit
++ A move counter
 
 ## Puzzle Source
 

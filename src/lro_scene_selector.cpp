@@ -38,7 +38,7 @@ namespace lro {
     }
     }
 
-    Scene Selector::execute(Rank rank){
+    int Selector::execute(Rank rank){
         bn::optional<bn::regular_bg_ptr> bg;
         int startingLevel = 1;
         switch (rank)
@@ -113,60 +113,8 @@ namespace lro {
 
         while(true){
             if(bn::keypad::a_pressed()){
-                if(selected+startingLevel-1 < state.get_last_completed_level() + 1){ //todo remove true block levels
-                    switch(selected+startingLevel-1){
-                        case 0 : return Scene::LEVEL1;
-                        case 1 : return Scene::LEVEL2;
-                        case 2 : return Scene::LEVEL3;
-                        case 3 : return Scene::LEVEL4;
-                        case 4 : return Scene::LEVEL5;
-                        case 5 : return Scene::LEVEL6;
-                        case 6 : return Scene::LEVEL7;
-                        case 7 : return Scene::LEVEL8;
-                        case 8 : return Scene::LEVEL9;
-                        case 9 : return Scene::LEVEL10;
-                        case 10 : return Scene::LEVEL11;
-                        case 11 : return Scene::LEVEL12;
-                        case 12 : return Scene::LEVEL13;
-                        case 13 : return Scene::LEVEL14;
-                        case 14 : return Scene::LEVEL15;
-                        case 15 : return Scene::LEVEL16;
-                        case 16 : return Scene::LEVEL17;
-                        case 17 : return Scene::LEVEL18;
-                        case 18 : return Scene::LEVEL19;
-                        case 19 : return Scene::LEVEL20;
-                        case 20 : return Scene::LEVEL21;
-                        case 21 : return Scene::LEVEL22;
-                        case 22 : return Scene::LEVEL23;
-                        case 23 : return Scene::LEVEL24;
-                        case 24 : return Scene::LEVEL25;
-                        case 25 : return Scene::LEVEL26;
-                        case 26 : return Scene::LEVEL27;
-                        case 27 : return Scene::LEVEL28;
-                        case 28 : return Scene::LEVEL29;
-                        case 29 : return Scene::LEVEL30;
-                        case 30 : return Scene::LEVEL31;
-                        case 31 : return Scene::LEVEL32;
-                        case 32 : return Scene::LEVEL33;
-                        case 33 : return Scene::LEVEL34;
-                        case 34 : return Scene::LEVEL35;
-                        case 35 : return Scene::LEVEL36;
-                        case 36 : return Scene::LEVEL37;
-                        case 37 : return Scene::LEVEL38;
-                        case 38 : return Scene::LEVEL39;
-                        case 39 : return Scene::LEVEL40;
-                        case 40 : return Scene::LEVEL41;
-                        case 41 : return Scene::LEVEL42;
-                        case 42 : return Scene::LEVEL43;
-                        case 43 : return Scene::LEVEL44;
-                        case 44 : return Scene::LEVEL45;
-                        case 45 : return Scene::LEVEL46;
-                        case 46 : return Scene::LEVEL47;
-                        case 47 : return Scene::LEVEL48;
-                        case 48 : return Scene::LEVEL49;
-                        case 49 : return Scene::LEVEL50;
-                        default : return Scene::LEVEL1;
-                    }
+                if(selected+startingLevel-1 < state.get_last_completed_level() + 1 || true){ //todo remove true block levels
+                    return selected+startingLevel;
                 }
             }
 
@@ -197,7 +145,7 @@ namespace lro {
             cursor.set_position(get_cursor_pos(selected));
 
             if(bn::keypad::b_pressed()){
-                return Scene::LevelSelect;
+                return 0;
             }
 
             bn::core::update();

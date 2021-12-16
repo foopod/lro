@@ -15,7 +15,7 @@ namespace lro
             bn::sprite_text_generator* _text_generator;
         public:
             Selector(bn::sprite_text_generator& text_generator);
-            lro::Scene execute(lro::Rank rank);
+            int execute(lro::Rank rank);
     };
 }
 

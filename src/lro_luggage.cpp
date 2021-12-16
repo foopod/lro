@@ -2,6 +2,7 @@
 
 #include "bn_fixed.h"
 #include "bn_random.h"
+#include "bn_optional.h"
 #include "bn_sprite_actions.h"
 
 #include "bn_sprite_items_suitcase12a.h"
@@ -14,6 +15,9 @@
 #include "bn_sprite_items_suitcase13a.h"
 #include "bn_sprite_items_suitcase13b.h"
 #include "bn_sprite_items_suitcase13c.h"
+#include "bn_sprite_items_suitcase13d.h"
+#include "bn_sprite_items_suitcase13e.h"
+#include "bn_sprite_items_suitcase13f.h"
 #include "bn_sprite_items_suitcase12va.h"
 #include "bn_sprite_items_suitcase12vb.h"
 #include "bn_sprite_items_suitcase12vc.h"
@@ -24,7 +28,11 @@
 #include "bn_sprite_items_suitcase13va.h"
 #include "bn_sprite_items_suitcase13vb.h"
 #include "bn_sprite_items_suitcase13vc.h"
+#include "bn_sprite_items_suitcase13vd.h"
+#include "bn_sprite_items_suitcase13ve.h"
+#include "bn_sprite_items_suitcase13vf.h"
 #include "bn_sprite_items_target.h"
+#include "bn_sprite_items_target_black.h"
 
 namespace lro {
 
@@ -65,16 +73,25 @@ namespace lro {
         
         if(orientation == lro::Orientation::Horizontal){
             if(length != 2){
-                int num_palettes = 3;
+                int num_palettes = 6;
                 if(palette % num_palettes == 0){
                     _sprite = bn::sprite_items::suitcase13a.create_sprite(0, 0);
                     _sprite_item = bn::sprite_items::suitcase13a;
                 } else if (palette % num_palettes == 1){
                     _sprite = bn::sprite_items::suitcase13b.create_sprite(0, 0);
                     _sprite_item = bn::sprite_items::suitcase13b;
-                } else {
+                } else if (palette % num_palettes == 2){
                     _sprite = bn::sprite_items::suitcase13c.create_sprite(0, 0);
                     _sprite_item = bn::sprite_items::suitcase13c;
+                } else if (palette % num_palettes == 3){
+                    _sprite = bn::sprite_items::suitcase13d.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13d;
+                } else if (palette % num_palettes == 4){
+                    _sprite = bn::sprite_items::suitcase13e.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13e;
+                } else {
+                    _sprite = bn::sprite_items::suitcase13f.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13f;
                 }
             } else {
                 int num_palettes = 7;
@@ -110,9 +127,18 @@ namespace lro {
                 } else if (palette % num_palettes == 1){
                     _sprite = bn::sprite_items::suitcase13vb.create_sprite(0, 0);
                     _sprite_item = bn::sprite_items::suitcase13vb;
-                } else {
+                } else if (palette % num_palettes == 2){
                     _sprite = bn::sprite_items::suitcase13vc.create_sprite(0, 0);
                     _sprite_item = bn::sprite_items::suitcase13vc;
+                } else if (palette % num_palettes == 3){
+                    _sprite = bn::sprite_items::suitcase13vd.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13vd;
+                } else if (palette % num_palettes == 4){
+                    _sprite = bn::sprite_items::suitcase13ve.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13ve;
+                } else {
+                    _sprite = bn::sprite_items::suitcase13vf.create_sprite(0, 0);
+                    _sprite_item = bn::sprite_items::suitcase13vf;
                 }
             } else {
                 int num_palettes = 7;
@@ -144,14 +170,19 @@ namespace lro {
         _sprite.set_position(gridToScreen(_pos, _orientation, _length));
     }
 
-    Luggage::Luggage(bn::fixed_point pos, bool isTarget) :
+    Luggage::Luggage(bn::fixed_point pos, bool isRedTarget) :
         _pos(pos),
         _orientation(lro::Orientation::Horizontal),
         _length(2),
-        _is_target(isTarget),
+        _is_target(isRedTarget),
         _sprite(bn::sprite_items::target.create_sprite(0, 0)),
         _sprite_item(bn::sprite_items::target)
     {
+        if(!isRedTarget){
+            _sprite = bn::sprite_items::target_black.create_sprite(0, 0);
+            _sprite_item = bn::sprite_items::target_black;
+            _is_target = true;
+        }
         _sprite.set_position(gridToScreen(_pos, _orientation, _length));
     }
 
@@ -171,17 +202,17 @@ namespace lro {
         return _is_target;
     }
 
-    bn::sprite_move_to_action Luggage::moveLeft(){
+    bn::optional<bn::sprite_move_to_action> Luggage::moveLeft(){
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() - 1 >= 0){
                 _pos.set_x(_pos.x() - 1);
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
-        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
+        return bn::optional<bn::sprite_move_to_action>();
     }
 
-    bn::sprite_move_to_action Luggage::moveRight(){
+    bn::optional<bn::sprite_move_to_action> Luggage::moveRight(){
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() + (_length - 1) + 1 <= 5){
                 _pos.set_x(_pos.x() + 1);
@@ -191,27 +222,27 @@ namespace lro {
                 _sprite.set_position(gridToScreen(_pos, _orientation, _length));
             }
         }
-        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
+        return bn::optional<bn::sprite_move_to_action>();
     }
 
-    bn::sprite_move_to_action Luggage::moveUp(){
+    bn::optional<bn::sprite_move_to_action> Luggage::moveUp(){
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() - 1 >= 0){
                 _pos.set_y(_pos.y() - 1);
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
-        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
+        return bn::optional<bn::sprite_move_to_action>();
     }
     
-    bn::sprite_move_to_action Luggage::moveDown(){
+    bn::optional<bn::sprite_move_to_action> Luggage::moveDown(){
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() + (_length - 1) + 1 <= 5){
                 _pos.set_y(_pos.y() + 1);
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
-        return bn::sprite_move_to_action(_sprite, 1, _sprite.position());
+        return bn::optional<bn::sprite_move_to_action>();
     }
 
     void Luggage::hightlight(bool is_highlighted){
