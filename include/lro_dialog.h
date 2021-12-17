@@ -12,7 +12,8 @@ namespace lro
     enum class Speaker
     {
         Boss,
-        Anon
+        Anon,
+        Lock
     };
 
     enum class Emotion

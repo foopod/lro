@@ -7,6 +7,7 @@ namespace lro
     {
         Title,
         Tutorial,
+        Menu,
         LevelSelect,
         SelectTraining,
         SelectRecruit,

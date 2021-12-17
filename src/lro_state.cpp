@@ -18,6 +18,7 @@ namespace
         char label[8] = {};
         int level = 0;
         int academy[500] = {};
+        bool is_alt_colour = false;
 
         [[nodiscard]] bool read()
         {
@@ -38,6 +39,7 @@ namespace
     {
         sram_data sram_data_to_write;
         sram_data_to_write.level = state.get_last_completed_level();
+        sram_data_to_write.is_alt_colour = state.is_alt_colour();
         bn::vector<int, 500> tmp_v = state.get_best_min_moves_list();
         for(int i = 0; i<500; i++){
             sram_data_to_write.academy[i] = tmp_v.at(i);
@@ -53,6 +55,7 @@ namespace
 
         if(sram_data_to_read.read()){
             _level = sram_data_to_read.level;
+            _is_alt_colour = sram_data_to_read.is_alt_colour;
             for(int i = 0; i<500; i++){
                 _academy[i] = sram_data_to_read.academy[i];
             }
@@ -68,6 +71,12 @@ namespace
     void State::set_best_min_move(int index, int score)
     {
         _academy[index] = score;
+        _write_sram(*this);
+    }
+
+    void State::set_alt_colour(bool is_alt_colour)
+    {
+        _is_alt_colour = is_alt_colour;
         _write_sram(*this);
     }
 }

@@ -10,6 +10,7 @@ namespace lro
         private :
             int _level = 0;
             bn::vector<int, 500> _academy = bn::vector<int, 500>(500,0);
+            bool _is_alt_colour = false;
         public : 
             State();
 
@@ -22,6 +23,11 @@ namespace lro
                 return _academy;
             }
             void set_best_min_move(int index, int score);
+
+            [[nodiscard]] bool is_alt_colour(){
+                return _is_alt_colour;
+            }
+            void set_alt_colour(bool is_alt_colour);
     };
 }
 

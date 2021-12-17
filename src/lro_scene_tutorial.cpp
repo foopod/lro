@@ -26,7 +26,7 @@ namespace lro {
                 } else if(slide == 2){
                     bg = bn::regular_bg_items::tutorial3.create_bg(0, 0);
                 } else if(slide == 3){
-                    return Scene::LevelSelect;
+                    return Scene::Menu;
                 }
             }
             bn::core::update();

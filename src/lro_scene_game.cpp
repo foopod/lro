@@ -26,7 +26,7 @@ namespace lro
     Game::Game(bn::sprite_text_generator& text_generator)
     : _text_generator(&text_generator){}
 
-    Scene Game::execute(int level)
+    int Game::execute(int level)
     {
         State state;
         bn::regular_bg_ptr bg = bn::regular_bg_items::dialog.create_bg(0, 0);
@@ -35,7 +35,7 @@ namespace lro
         bn::optional<Dialog> dialog = lro::Dialog(dialog_lines, *_text_generator);
         dialog.value().set_visible(true);
 
-        while (!dialog.value().done() && state.get_last_completed_level() < level){ // remove dialog for completed levels
+        while (!dialog.value().done() && state.get_last_completed_level() < level && level <=50){ // remove dialog for completed levels
             dialog.value().update();
             bn::core::update();
         }
@@ -61,13 +61,15 @@ namespace lro
         lro::Levels levels;
 
         bn::vector<bn::sprite_ptr, 8> moves_counter;
-        _text_generator->set_center_alignment();
-        _text_generator->generate(60, 64,
-                    bn::to_string<8>(player.moves()), 
-                    moves_counter);
-        _text_generator->generate(80, 64,
-                    bn::to_string<8>(levels.get_min_move_count(level)), 
-                    moves_counter);
+        if(level > 50){
+            _text_generator->set_center_alignment();
+            _text_generator->generate(60, 64,
+                        bn::to_string<8>(player.moves()), 
+                        moves_counter);
+            _text_generator->generate(80, 64,
+                        bn::to_string<8>(levels.get_min_move_count(level)), 
+                        moves_counter);
+        }
 
         while (true)
         {
@@ -84,41 +86,21 @@ namespace lro
             }
 
             if(animation_ended){
-                if(level % 10 == 0){
-                    return Scene::LevelSelect;
-                }
-                if (level < 11)
-                {
-                    return Scene::SelectTraining;
-                }
-                else if (level < 21)
-                {
-                    return Scene::SelectRecruit;
-                }
-                else if (level < 31)
-                {
-                    return Scene::SelectSenior;
-                }
-                else if (level < 41)
-                {
-                    return Scene::SelectExpert;
-                }
-                else
-                {
-                    return Scene::SelectOfficer;
-                }
+                return level;
             }
             player.update();
-            moves_counter.clear();
-            _text_generator->generate(58, 63,
-                    bn::to_string<8>(player.moves()), 
-                    moves_counter);
-            _text_generator->generate(88, 63,
-                    bn::to_string<8>(levels.get_min_move_count(level)), 
-                    moves_counter);
+            if(level > 50){
+                moves_counter.clear();
+                _text_generator->generate(58, 63,
+                        bn::to_string<8>(player.moves()), 
+                        moves_counter);
+                _text_generator->generate(88, 63,
+                        bn::to_string<8>(levels.get_min_move_count(level)), 
+                        moves_counter);
+            }
 
-            if(bn::keypad::select_held() && bn::keypad::left_held()){
-                return Scene::LevelSelect;
+            if(bn::keypad::select_held() && bn::keypad::l_held()){
+                return level;
             }
             bn::core::update();
         }

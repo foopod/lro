@@ -7,6 +7,7 @@
 #include "bn_sprite_items_dialog_bg.h"
 #include "bn_sprite_items_police_face.h"
 #include "bn_sprite_items_anon_face.h"
+#include "bn_sprite_items_unlock_face.h"
 
 namespace lro
 {
@@ -43,6 +44,9 @@ namespace lro
         }
         if(speaker == Speaker::Anon){
             return bn::sprite_items::anon_face.create_sprite(-84, 0, static_cast<int>(emotion));
+        }
+        if(speaker == Speaker::Lock){
+            return bn::sprite_items::unlock_face.create_sprite(-84, 0, static_cast<int>(emotion));
         }
     }
 

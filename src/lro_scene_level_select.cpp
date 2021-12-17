@@ -17,10 +17,10 @@
 
 namespace lro {
 
-    [[nodiscard]] bn::fixed_point get_cursor_pos(int selected, int offset)
+    [[nodiscard]] bn::fixed_point get_cursor_pos(int selected)
     {
         int sx = -14;
-        int sy = -11 + offset;
+        int sy = -11;
 
         sy += selected * 12;
 
@@ -34,7 +34,7 @@ namespace lro {
         bn::regular_bg_ptr bg = bn::regular_bg_items::blank_bg.create_bg(0, 0);
 
         int selected = 0;
-        int max_levels = 5+1;
+        int max_levels = 5;
 
         State state;
         int offset = 0;
@@ -42,18 +42,14 @@ namespace lro {
         bn::vector<bn::sprite_ptr, 32> labels;
 
         _text_generator->set_left_alignment();
-        if(state.get_last_completed_level() >= 50){
-            _text_generator->generate(10, -22, "Academy", labels);
-            max_levels+=1;
-            offset = -12;
-        }
         _text_generator->generate(10, -10, "Trainee", labels);
         _text_generator->generate(10, 2, "Recruit", labels);
         _text_generator->generate(10, 14, "Senior", labels);
         _text_generator->generate(10, 26, "Expert", labels);
         _text_generator->generate(10, 38, "Officer", labels);
-        _text_generator->generate(10, 50, "Help", labels);
 
+        _text_generator->set_left_alignment();
+        _text_generator->generate(-112, 72, "β Back", labels);
         _text_generator->set_right_alignment();
         _text_generator->generate(112, 72, "α Select", labels);
 
@@ -117,14 +113,10 @@ namespace lro {
                 if(selected < 0){
                     selected = 0;
                 }
-                int temp = selected;
-                if(state.get_last_completed_level() >= 50){
-                    temp-= 1;
-                }
-                if(temp == 4){
+                if(selected == 4){
                     black_suitcase.set_visible(true);
                     red_suitcase.set_visible(false);
-                } else if(temp == 5){
+                } else if(selected == 5){
                     black_suitcase.set_visible(false);
                     red_suitcase.set_visible(false);
                 } else {
@@ -138,14 +130,10 @@ namespace lro {
                 if(selected == max_levels){
                     selected = max_levels - 1;
                 }
-                int temp = selected;
-                if(state.get_last_completed_level() >= 50){
-                    temp-= 1;
-                }
-                if(temp == 4){
+                if(selected == 4){
                     black_suitcase.set_visible(true);
                     red_suitcase.set_visible(false);
-                } else if(temp == 5){
+                } else if(selected == 5){
                     black_suitcase.set_visible(false);
                     red_suitcase.set_visible(false);
                 } else {
@@ -155,12 +143,7 @@ namespace lro {
             }
 
             if(bn::keypad::a_pressed()){
-                int temp = selected;
-                if(state.get_last_completed_level() >= 50){
-                    temp-= 1;
-                }
-                switch(temp){
-                    case -1 : return Scene::Academy;
+                switch(selected){
                     case 0 : return Scene::SelectTraining;
                     case 1 : 
                         if(max_level > 9){
@@ -186,7 +169,11 @@ namespace lro {
                 }
             }
 
-            cursor.set_position(get_cursor_pos(selected, offset));
+            if(bn::keypad::b_pressed()){
+                return Scene::Menu;
+            }
+
+            cursor.set_position(get_cursor_pos(selected));
             
             bn::core::update();
         }

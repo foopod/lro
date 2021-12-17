@@ -57,11 +57,14 @@ namespace lro {
     Academy::Academy(bn::sprite_text_generator& text_generator)
     : _text_generator(&text_generator){}
 
-    int Academy::execute(){
+    int Academy::execute(int last_level){
         bn::regular_bg_ptr bg = bn::regular_bg_items::academy.create_bg(0, 0);
         lro::State state;
 
         int current_level = 1;
+        if(last_level>50){
+            current_level = last_level-50;
+        }
         int max_level = 500;
         Levels levels;
 

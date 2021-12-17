@@ -62,7 +62,7 @@ namespace lro {
 
     bool Player::has_finished(int level){
         if(_has_finished){
-            if(level > _state.get_last_completed_level()){
+            if(level > _state.get_last_completed_level() && level < 51){
                 _state.completeLevel(level);
             }
             if(level > 50){

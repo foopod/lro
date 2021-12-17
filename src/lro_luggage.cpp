@@ -1,4 +1,5 @@
 #include "lro_luggage.h"
+#include "lro_state.h"
 
 #include "bn_fixed.h"
 #include "bn_random.h"
@@ -33,6 +34,8 @@
 #include "bn_sprite_items_suitcase13vf.h"
 #include "bn_sprite_items_target.h"
 #include "bn_sprite_items_target_black.h"
+#include "bn_sprite_items_target_b.h"
+#include "bn_sprite_items_target_black_b.h"
 
 namespace lro {
 
@@ -178,10 +181,19 @@ namespace lro {
         _sprite(bn::sprite_items::target.create_sprite(0, 0)),
         _sprite_item(bn::sprite_items::target)
     {
+        State state;
         if(!isRedTarget){
-            _sprite = bn::sprite_items::target_black.create_sprite(0, 0);
-            _sprite_item = bn::sprite_items::target_black;
+            if(state.is_alt_colour()){
+                _sprite = bn::sprite_items::target_black_b.create_sprite(0, 0);
+                _sprite_item = bn::sprite_items::target_black_b;
+            } else {
+                _sprite = bn::sprite_items::target_black.create_sprite(0, 0);
+                _sprite_item = bn::sprite_items::target_black;
+            }
             _is_target = true;
+        } else if(state.is_alt_colour()){
+            _sprite = bn::sprite_items::target_b.create_sprite(0, 0);
+            _sprite_item = bn::sprite_items::target_b;
         }
         _sprite.set_position(gridToScreen(_pos, _orientation, _length));
     }

@@ -15,7 +15,7 @@ namespace lro
 
         public:
             Game(bn::sprite_text_generator& text_generator);
-            lro::Scene execute(int level);
+            int execute(int level);
     };
 }
 

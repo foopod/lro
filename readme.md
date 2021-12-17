@@ -2,15 +2,15 @@
 
 ## To Do List
 
-+ Make an Options Menu
-    + Brightness
-    + Reset Level Progress
-    + Replay Tutorial
-    + Credits
-+ Main Menu
-+ Add sound effects
-+ Add music
-+ Colour Blind Mode
++ Make an Options Menu - maybe
+    + Brightness - maybe
+    + Reset Level Progress - nah
+    + Replay Tutorial - done
+    + Credits - ya
++ Main Menu - done
++ Add sound effects - yah
++ Add music - yah
++ Colour Blind Mode - yah
 
 ## What if there was?
 

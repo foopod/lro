@@ -93,6 +93,7 @@ namespace lro
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "The bags we are retriving now contain valuables."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "This one has an expensive digital camera."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "Thanks!"));
+                dialog_lines.push_back(DialogLine(Speaker::Lock, Emotion::Happy, "Arcade Mode Unlocked"));
                 return dialog_lines;
                 break;
             case 12:
