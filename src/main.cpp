@@ -1,8 +1,9 @@
 #include "bn_core.h"
-
+#include "bn_regular_bg_ptr.h"
 #include "bn_keypad.h"
 #include "bn_log.h"
 #include "bn_fixed_point.h"
+
 #include "bn_sprite_text_generator.h"
 
 #include "lro_font.h"
@@ -18,11 +19,15 @@
 #include "lro_scene_academy.h"
 #include "lro_scene_menu.h"
 
+#include "bn_regular_bg_items_blank.h"
+
 int main()
 {
     bn::core::init();
     lro::Scene scene = lro::Scene::Title;
     lro::State state;
+
+    // bn::regular_bg_ptr bg = bn::regular_bg_items::blank.create_bg(0, 0);
     
     // unlock all levels
     // state.completeLevel(50);
@@ -146,6 +151,5 @@ int main()
         if(current_level == 0 && scene == lro::Scene::LEVEL){
             scene = lro::Scene::Menu;
         }
-        bn::core::update();
     }
 }

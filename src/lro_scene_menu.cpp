@@ -69,6 +69,8 @@ namespace lro
             lock_arcade.set_visible(false);
         }
 
+
+        bn::core::update();
         while (true)
         {
 

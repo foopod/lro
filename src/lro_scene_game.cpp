@@ -71,6 +71,8 @@ namespace lro
                         moves_counter);
         }
 
+        bn::core::update();
+
         while (true)
         {
             if (!done.visible() && player.has_finished(level))

@@ -86,6 +86,7 @@ namespace lro
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "Get this last one and you pass the training."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "We can move you up to Recruit and..."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "and find you something more challenging."));
+                dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "I might even unlock the Arcade for you."));
                 return dialog_lines;
                 break;
             case 11:
@@ -93,7 +94,6 @@ namespace lro
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "The bags we are retriving now contain valuables."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "This one has an expensive digital camera."));
                 dialog_lines.push_back(DialogLine(Speaker::Boss, Emotion::Happy, "Thanks!"));
-                dialog_lines.push_back(DialogLine(Speaker::Lock, Emotion::Happy, "Arcade Mode Unlocked"));
                 return dialog_lines;
                 break;
             case 12:

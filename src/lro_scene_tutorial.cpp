@@ -18,6 +18,7 @@ namespace lro {
 
         int slide = 0;
 
+        bn::core::update();
         while(true){
             if(bn::keypad::a_pressed()){
                 slide++;

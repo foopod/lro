@@ -111,9 +111,11 @@ namespace lro {
         _text_generator->set_right_alignment();
         _text_generator->generate(112, 72, "α Select", labels);
 
+        bn::core::update();
+
         while(true){
             if(bn::keypad::a_pressed()){
-                if(selected+startingLevel-1 < state.get_last_completed_level() + 1 || true){ //todo remove true block levels
+                if(selected+startingLevel-1 < state.get_last_completed_level() + 1){ //todo remove true block levels
                     return selected+startingLevel;
                 }
             }

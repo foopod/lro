@@ -103,6 +103,8 @@ namespace lro {
             officer_lock.set_item(bn::sprite_items::lock, 2);
         }
 
+        bn::core::update();
+
         while(true){
             
             red_action.update();

@@ -88,6 +88,8 @@ namespace lro {
 
         int held_for = 0;
 
+        bn::core::update();
+
         while(true){
             if(bn::keypad::right_pressed() || (bn::keypad::right_held() && held_for > 30)){
                 current_level+=1;
