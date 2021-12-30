@@ -15,7 +15,8 @@ namespace lro
         SelectExpert,
         SelectOfficer,
         LEVEL,
-        Academy
+        Academy,
+        Credits
     };
 }
 

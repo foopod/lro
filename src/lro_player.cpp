@@ -5,6 +5,9 @@
 #include "bn_keypad.h"
 #include "bn_log.h"
 #include "bn_fixed_point.h"
+#include "bn_blending_actions.h"
+
+#include "bn_sound_items.h"
 
 namespace lro {
 
@@ -58,6 +61,7 @@ namespace lro {
         _luggage_list = lro::Levels().get_luggage(level);
         _cursor_sprite.set_position(gridToScreen(_cursor_pos));
         _cursor_sprite.put_above();
+        _cursor_sprite.set_blending_enabled(true);
     }
 
     bool Player::has_finished(int level){
@@ -79,6 +83,10 @@ namespace lro {
     void Player::update(){
         if(_slide_action.has_value() && !_slide_action.value().done()){
             _slide_action.value().update();
+            _lock_frames+=1;
+            if(_lock_frames > 3){
+                _locked = false;
+            }
         } 
         else if (_slide_action.has_value() && _slide_action.value().done() && _done)
         {
@@ -86,37 +94,6 @@ namespace lro {
         }
         
         if(!_has_finished && (!_slide_action.has_value() || (_slide_action.has_value() && _slide_action.value().done()))){
-
-            //back in list
-            if(bn::keypad::l_pressed()){
-                if(_cursor_sprite.visible()){
-                    _cursor_sprite.set_visible(false);
-                    _luggage_list.at(_selected).hightlight(true);
-                } else {
-                    _luggage_list.at(_selected).hightlight(false);
-                    --_selected;
-                    if(_selected < 0){
-                        _selected = _luggage_list.size() - 1;
-                    }
-                    _luggage_list.at(_selected).hightlight(true);
-                }
-            }
-
-            //forward in list
-            if(bn::keypad::r_pressed()){
-                if(_cursor_sprite.visible()){
-                    _cursor_sprite.set_visible(false);
-                    _luggage_list.at(_selected).hightlight(true);
-                } else {
-                    _luggage_list.at(_selected).hightlight(false);
-                    ++_selected;
-                    if(_selected > _luggage_list.size() - 1){
-                        _selected = 0;
-                    }
-                    _luggage_list.at(_selected).hightlight(true);
-                }
-            }
-
             if(bn::keypad::left_pressed()){
                 if(_cursor_sprite.visible()){
                     if(_cursor_pos.x() > 0){
@@ -130,11 +107,15 @@ namespace lro {
                     );
                     if(!isInWay(desired, _luggage_list)){
                         _slide_action = _luggage_list.at(_selected).moveLeft();
+                        if(_slide_action.has_value()){
+                            _lock_frames = 0;
+                            _locked = true;
+                        }
+                    } else {
+                        bn::sound_items::no_move.play();
                     }
                 }
-            }
-
-            if(bn::keypad::right_pressed()){
+            } else if(bn::keypad::right_pressed()){
                 if(_cursor_sprite.visible()){
                     if(_cursor_pos.x() < 5){
                         _cursor_pos.set_x(_cursor_pos.x() + 1);
@@ -154,6 +135,12 @@ namespace lro {
                     // or just normal move
                     else if(!isInWay(desired, _luggage_list)){
                         _slide_action = _luggage_list.at(_selected).moveRight();
+                        if(_slide_action.has_value()){
+                            _lock_frames = 0;
+                            _locked = true;
+                        }
+                    } else {
+                        bn::sound_items::no_move.play();
                     }
                 }
             }
@@ -171,11 +158,15 @@ namespace lro {
                     );
                     if(!isInWay(desired, _luggage_list)){
                         _slide_action = _luggage_list.at(_selected).moveUp();
+                        if(_slide_action.has_value()){
+                            _lock_frames = 0;
+                            _locked = true;
+                        }
+                    } else {
+                        bn::sound_items::no_move.play();
                     }
                 }
-            }
-
-            if(bn::keypad::down_pressed()){
+            } else if(bn::keypad::down_pressed()){
                 if(_cursor_sprite.visible()){
                     if(_cursor_pos.y() < 5){
                         _cursor_pos.set_y(_cursor_pos.y() + 1);
@@ -188,12 +179,18 @@ namespace lro {
                     );
                     if(!isInWay(desired, _luggage_list)){
                         _slide_action = _luggage_list.at(_selected).moveDown();
+                        if(_slide_action.has_value()){
+                            _lock_frames = 0;
+                            _locked = true;
+                        }
+                    } else {
+                        bn::sound_items::no_move.play();
                     }
                 }
             }
-
         }
-        if(bn::keypad::a_pressed()){
+        
+        if(bn::keypad::a_pressed() && !_locked){
             if(_cursor_sprite.visible()){
                 int tmp_luggage = get_luggage_at_pos(_cursor_pos, _luggage_list);
                 if(tmp_luggage >= 0){

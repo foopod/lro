@@ -26,6 +26,9 @@ namespace lro
             bn::fixed_point _old_pos = bn::fixed_point(0,0);
             int _moves_so_far = 0;
 
+            int _lock_frames = 0;
+            bool _locked = false;
+
 
             bn::optional<bn::sprite_move_to_action> _slide_action;
 

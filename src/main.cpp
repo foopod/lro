@@ -18,19 +18,25 @@
 #include "lro_scene_game.h"
 #include "lro_scene_academy.h"
 #include "lro_scene_menu.h"
+#include "lro_scene_credits.h"
+
+#include "bn_music_items.h"
 
 #include "bn_regular_bg_items_blank.h"
+
+#define BN_CFG_AUDIO_MIXING_RATE BN_AUDIO_MIXING_RATE_21_KHZ
 
 int main()
 {
     bn::core::init();
-    lro::Scene scene = lro::Scene::Title;
+    
+    lro::Scene scene = lro::Scene::Credits;
     lro::State state;
-
-    // bn::regular_bg_ptr bg = bn::regular_bg_items::blank.create_bg(0, 0);
     
     // unlock all levels
     // state.completeLevel(50);
+
+    bool music_started = false;
 
     bn::sprite_text_generator text_generator(lro::fixed_8x8_sprite_font);
 
@@ -41,7 +47,16 @@ int main()
         if (scene == lro::Scene::Title)
         {
             lro::Title title = lro::Title();
+            if(!music_started){
+                bn::music_items::meloutest3.play(1, true);
+                music_started = true;
+            }
             scene = title.execute();
+        } 
+        else if (scene == lro::Scene::Credits)
+        {
+            lro::Credits credits = lro::Credits();
+            scene = credits.execute();
         }
         else if (scene == lro::Scene::Tutorial)
         {

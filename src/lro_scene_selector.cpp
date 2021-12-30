@@ -19,6 +19,8 @@
 #include "bn_regular_bg_items_expert.h"
 #include "bn_regular_bg_items_officer.h"
 
+#include "bn_sound_items.h"
+
 namespace lro {
     Selector::Selector(bn::sprite_text_generator& text_generator)
     : _text_generator(&text_generator){}
@@ -36,6 +38,18 @@ namespace lro {
 
         return bn::fixed_point(sx, sy);
     }
+    }
+
+    void Selector::fade_out(bn::blending::fade_color_type color)
+    {
+        bn::blending::set_fade_alpha(0);
+        bn::blending::set_fade_color(color);
+        _fade_action = bn::blending_fade_alpha_to_action(15, 1);
+        while(!_fade_action.value().done()){
+            _fade_action.value().update();
+            bn::core::update();
+        }
+        bn::blending::set_fade_alpha(1);
     }
 
     int Selector::execute(Rank rank){
@@ -64,9 +78,8 @@ namespace lro {
                 startingLevel = 41;
                 break;
         }
+        bg.value().set_blending_enabled(true);
         
-
-        bn::sprite_ptr cursor = bn::sprite_items::cursor.create_sprite(80, -30,1);
 
         State state;
         int selected = 0;
@@ -81,6 +94,10 @@ namespace lro {
 
         bn::vector<bn::sprite_ptr, 32> labels;
         bn::vector<bn::sprite_ptr, 10> boxes;
+
+        bn::sprite_ptr cursor = bn::sprite_items::cursor.create_sprite(80, -30,1);
+        cursor.set_blending_enabled(true);
+        cursor.set_position(get_cursor_pos(selected));
 
         _text_generator->set_center_alignment();
 
@@ -111,42 +128,69 @@ namespace lro {
         _text_generator->set_right_alignment();
         _text_generator->generate(112, 72, "α Select", labels);
 
-        bn::core::update();
+        for(bn::sprite_ptr sprite: labels){
+            sprite.set_blending_enabled(true);
+        }
+        for(bn::sprite_ptr sprite: boxes){
+            sprite.set_blending_enabled(true);
+        }
+
+        //fade in
+        bn::blending::set_fade_alpha(1);
+        bn::blending::set_fade_color(bn::blending::fade_color_type::WHITE);
+        _fade_action = bn::blending_fade_alpha_to_action(30, 0);
 
         while(true){
+
+            if(!_fade_action.value().done()){
+                _fade_action.value().update();
+            } else {
+                bn::blending::set_fade_alpha(0);
+            }
+
             if(bn::keypad::a_pressed()){
                 if(selected+startingLevel-1 < state.get_last_completed_level() + 1){ //todo remove true block levels
+                    bn::sound_items::luggage_2.play();
+                    fade_out(bn::blending::fade_color_type::BLACK);
                     return selected+startingLevel;
+                } else {
+                    bn::sound_items::no_move.play();
                 }
             }
 
             if(bn::keypad::up_pressed()){
                 if(selected > 4){
                     selected -=5;
+                    bn::sound_items::luggage_2.play();
                 }
             }
 
             if(bn::keypad::down_pressed()){
                 if(selected <=4){
                     selected +=5;
+                    bn::sound_items::luggage_2.play();
                 }
             }
 
             if(bn::keypad::left_pressed()){
                 if(selected != 0 && selected !=5){
                     --selected;
+                    bn::sound_items::luggage_2.play();
                 }
             }
 
             if(bn::keypad::right_pressed()){
                 if(selected != 4 && selected !=9){
                     ++selected;
+                    bn::sound_items::luggage_2.play();
                 }
             }
 
             cursor.set_position(get_cursor_pos(selected));
 
             if(bn::keypad::b_pressed()){
+                bn::sound_items::luggage_2.play();
+                fade_out(bn::blending::fade_color_type::WHITE);
                 return 0;
             }
 

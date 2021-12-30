@@ -23,7 +23,12 @@ namespace
         [[nodiscard]] bool read()
         {
             bn::sram::read(*this);
-            return bn::string_view(label) == valid_label;
+            if(bn::string_view(label) == valid_label){
+                return true;
+            } else{
+                write();
+            }
+            
         }
 
         void write()

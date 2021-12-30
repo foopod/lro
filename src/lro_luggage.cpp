@@ -5,6 +5,7 @@
 #include "bn_random.h"
 #include "bn_optional.h"
 #include "bn_sprite_actions.h"
+#include "bn_blending_actions.h"
 
 #include "bn_sprite_items_suitcase12a.h"
 #include "bn_sprite_items_suitcase12b.h"
@@ -36,6 +37,8 @@
 #include "bn_sprite_items_target_black.h"
 #include "bn_sprite_items_target_b.h"
 #include "bn_sprite_items_target_black_b.h"
+
+#include "bn_sound_items.h"
 
 namespace lro {
 
@@ -171,6 +174,7 @@ namespace lro {
         }
 
         _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+        _sprite.set_blending_enabled(true);
     }
 
     Luggage::Luggage(bn::fixed_point pos, bool isRedTarget) :
@@ -196,6 +200,7 @@ namespace lro {
             _sprite_item = bn::sprite_items::target_b;
         }
         _sprite.set_position(gridToScreen(_pos, _orientation, _length));
+        _sprite.set_blending_enabled(true);
     }
 
     bn::fixed_point Luggage::pos(){
@@ -218,9 +223,11 @@ namespace lro {
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() - 1 >= 0){
                 _pos.set_x(_pos.x() - 1);
+                bn::sound_items::slide.play();
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        bn::sound_items::no_move.play();
         return bn::optional<bn::sprite_move_to_action>();
     }
 
@@ -228,12 +235,14 @@ namespace lro {
         if(_orientation == lro::Orientation::Horizontal){
             if(_pos.x() + (_length - 1) + 1 <= 5){
                 _pos.set_x(_pos.x() + 1);
+                bn::sound_items::slide.play();
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             } else if(_is_target){
                 _pos.set_x(_pos.x() + 1);
                 _sprite.set_position(gridToScreen(_pos, _orientation, _length));
             }
         }
+        bn::sound_items::no_move.play();
         return bn::optional<bn::sprite_move_to_action>();
     }
 
@@ -241,9 +250,11 @@ namespace lro {
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() - 1 >= 0){
                 _pos.set_y(_pos.y() - 1);
+                bn::sound_items::slide.play();
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        bn::sound_items::no_move.play();
         return bn::optional<bn::sprite_move_to_action>();
     }
     
@@ -251,9 +262,11 @@ namespace lro {
         if(_orientation == lro::Orientation::Vertical){
             if(_pos.y() + (_length - 1) + 1 <= 5){
                 _pos.set_y(_pos.y() + 1);
+                bn::sound_items::slide.play();
                 return bn::sprite_move_to_action(_sprite, 10, gridToScreen(_pos, _orientation, _length));
             }
         }
+        bn::sound_items::no_move.play();
         return bn::optional<bn::sprite_move_to_action>();
     }
 
