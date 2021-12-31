@@ -24,7 +24,7 @@ namespace lro {
             
         public :
             Luggage(bn::fixed_point pos, lro::Orientation orientation, int length, int palette);
-            Luggage(bn::fixed_point pos, bool isRedTarget);
+            Luggage(bn::fixed_point pos, bool isRedTarget, bool is_alt);
             bn::fixed_point pos();
             lro::Orientation orientation();
             int length();

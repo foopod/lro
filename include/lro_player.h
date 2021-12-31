@@ -21,7 +21,7 @@ namespace lro
             bn::fixed_point _cursor_pos = bn::fixed_point(0,0);
             bool _has_finished = false; // level finished
             bool _done = false; // puzzle solved, but level outro animation playing
-            State _state;
+            State* _state;
 
             bn::fixed_point _old_pos = bn::fixed_point(0,0);
             int _moves_so_far = 0;
@@ -33,7 +33,7 @@ namespace lro
             bn::optional<bn::sprite_move_to_action> _slide_action;
 
         public : 
-            Player(int level);
+            Player(int level, State& state);
             void update();
             bool has_finished(int level);
             int moves(){

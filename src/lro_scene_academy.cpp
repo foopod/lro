@@ -57,8 +57,8 @@ namespace lro {
     }
     }
 
-    Academy::Academy(bn::sprite_text_generator& text_generator)
-    : _text_generator(&text_generator){}
+    Academy::Academy(bn::sprite_text_generator& text_generator, State& state)
+    : _text_generator(&text_generator), _state(&state){}
 
     void Academy::fade_out(bn::blending::fade_color_type color)
     {
@@ -75,7 +75,6 @@ namespace lro {
     int Academy::execute(int last_level){
         bn::regular_bg_ptr bg = bn::regular_bg_items::academy.create_bg(0, 0);
         bg.set_blending_enabled(true);
-        lro::State state;
 
         int current_level = 1;
         if(last_level>50){
@@ -84,7 +83,7 @@ namespace lro {
         int max_level = 500;
         Levels levels;
 
-        bn::vector<int, 500> best_min_moves = state.get_best_min_moves_list();
+        bn::vector<int, 500> best_min_moves = _state->get_best_min_moves_list();
 
         bn::vector<bn::sprite_ptr, 20> nav_labels;
         _text_generator->set_left_alignment();
@@ -180,13 +179,13 @@ namespace lro {
             }
 
             if(bn::keypad::a_pressed()){
-                bn::sound_items::luggage.play();
+                bn::sound_items::luggage_2.play();
                 fade_out(bn::blending::fade_color_type::BLACK);
                 return current_level+50;
             }
 
             if(bn::keypad::b_pressed()){
-                bn::sound_items::luggage.play();
+                bn::sound_items::luggage_2.play();
                 fade_out(bn::blending::fade_color_type::WHITE);
                 return 0;
             }

@@ -177,7 +177,7 @@ namespace lro {
         _sprite.set_blending_enabled(true);
     }
 
-    Luggage::Luggage(bn::fixed_point pos, bool isRedTarget) :
+    Luggage::Luggage(bn::fixed_point pos, bool isRedTarget, bool is_alt) :
         _pos(pos),
         _orientation(lro::Orientation::Horizontal),
         _length(2),
@@ -185,9 +185,8 @@ namespace lro {
         _sprite(bn::sprite_items::target.create_sprite(0, 0)),
         _sprite_item(bn::sprite_items::target)
     {
-        State state;
         if(!isRedTarget){
-            if(state.is_alt_colour()){
+            if(is_alt){
                 _sprite = bn::sprite_items::target_black_b.create_sprite(0, 0);
                 _sprite_item = bn::sprite_items::target_black_b;
             } else {
@@ -195,7 +194,7 @@ namespace lro {
                 _sprite_item = bn::sprite_items::target_black;
             }
             _is_target = true;
-        } else if(state.is_alt_colour()){
+        } else if(is_alt){
             _sprite = bn::sprite_items::target_b.create_sprite(0, 0);
             _sprite_item = bn::sprite_items::target_b;
         }

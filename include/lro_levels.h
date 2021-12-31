@@ -8,14 +8,14 @@ namespace lro
     class Levels
     {
     public:
-        [[nodiscard]] bn::vector<Luggage, 16> get_luggage(int level)
+        [[nodiscard]] bn::vector<Luggage, 16> get_luggage(int level, bool is_alt)
         {
             bn::vector<Luggage, 16> luggage_list = {};
 
             switch (level)
             {
             case 1:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 // luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 3, 1));
@@ -25,7 +25,7 @@ namespace lro
                 // luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 2:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 3, 1));
@@ -45,7 +45,7 @@ namespace lro
                 // luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 3:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 1));
@@ -53,7 +53,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 4:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 1));
@@ -62,7 +62,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 3, 3));
                 return luggage_list;
             case 5:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 1));
@@ -75,7 +75,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 6:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
@@ -88,7 +88,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 7:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 2));
@@ -99,7 +99,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 8:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
@@ -115,7 +115,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 9));
                 return luggage_list;
             case 9:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 1));
@@ -129,7 +129,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 10:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
@@ -143,7 +143,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 11:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 3, 1));
@@ -153,7 +153,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 12:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
@@ -163,7 +163,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 13:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 2));
@@ -178,7 +178,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 9));
                 return luggage_list;
             case 14:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 2));
@@ -192,7 +192,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 10));
                 return luggage_list;
             case 15:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 1));
@@ -208,7 +208,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 16:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 1));
@@ -221,7 +221,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 17:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Vertical, 2, 1));
@@ -235,7 +235,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 3));
                 return luggage_list;
             case 18:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
@@ -246,7 +246,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 19:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
@@ -256,7 +256,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
                 return luggage_list;
             case 20:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 1));
@@ -268,7 +268,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 21:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 1));
@@ -277,7 +277,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 22:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
@@ -291,7 +291,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 23:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
@@ -303,7 +303,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 24:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -315,7 +315,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 25:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 1));
@@ -330,7 +330,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 26:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 2));
@@ -344,7 +344,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 27:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 1));
@@ -356,7 +356,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 28:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
@@ -370,7 +370,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 29:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -384,7 +384,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 30:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 1));
@@ -396,7 +396,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 2));
                 return luggage_list;
             case 31:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
@@ -409,7 +409,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 3));
                 return luggage_list;
             case 32:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 2));
@@ -422,7 +422,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 33:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -436,7 +436,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 34:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
@@ -450,7 +450,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 35:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Vertical, 2, 1));
@@ -463,7 +463,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 36:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
@@ -477,7 +477,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 3));
                 return luggage_list;
             case 37:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 1));
@@ -492,7 +492,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 38:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 1));
@@ -505,7 +505,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 39:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
@@ -519,7 +519,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 40:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 1));
@@ -534,7 +534,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 41:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 1));
@@ -550,7 +550,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 3, 10));
                 return luggage_list;
             case 42:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 2));
@@ -564,7 +564,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 return luggage_list;
             case 43:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -579,7 +579,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 44:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 1));
@@ -593,7 +593,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 8));
                 return luggage_list;
             case 45:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -609,7 +609,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 3, 2));
                 return luggage_list;
             case 46:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 2));
@@ -625,7 +625,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 11));
                 return luggage_list;
             case 47:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
@@ -638,7 +638,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 6));
                 return luggage_list;
             case 48:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 2));
@@ -652,7 +652,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 49:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 2));
@@ -666,7 +666,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 7));
                 return luggage_list;
             case 50:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), false));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), false, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 1));
@@ -693,7 +693,7 @@ namespace lro
             // 50 - GBBoLoGHIoLMGHIAAMCCCKoMooJKDDEEJFFo
             case 51:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -709,7 +709,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 4));
@@ -720,7 +720,7 @@ namespace lro
                 return luggage_list;
             case 53:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -734,7 +734,7 @@ namespace lro
                 return luggage_list;
             case 54:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -749,7 +749,7 @@ namespace lro
                 return luggage_list;
             case 55:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -765,7 +765,7 @@ namespace lro
             case 56:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
@@ -781,7 +781,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
@@ -794,7 +794,7 @@ namespace lro
                 return luggage_list;
             case 58:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -809,7 +809,7 @@ namespace lro
             case 59:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -821,7 +821,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 60:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
@@ -834,7 +834,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 61:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -849,7 +849,7 @@ namespace lro
                 return luggage_list;
             case 62:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 3));
@@ -865,7 +865,7 @@ namespace lro
                 return luggage_list;
             case 63:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -881,7 +881,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
@@ -896,7 +896,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 4));
@@ -908,7 +908,7 @@ namespace lro
                 return luggage_list;
             case 66:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
@@ -925,7 +925,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 5));
@@ -934,7 +934,7 @@ namespace lro
                 return luggage_list;
             case 68:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -946,7 +946,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 69:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -961,7 +961,7 @@ namespace lro
                 return luggage_list;
             case 70:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 3));
@@ -980,7 +980,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 2));
@@ -991,7 +991,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 2));
@@ -1002,7 +1002,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 73:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -1020,7 +1020,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -1033,7 +1033,7 @@ namespace lro
                 return luggage_list;
             case 75:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -1049,7 +1049,7 @@ namespace lro
                 return luggage_list;
             case 76:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
@@ -1062,7 +1062,7 @@ namespace lro
                 return luggage_list;
             case 77:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -1076,7 +1076,7 @@ namespace lro
                 return luggage_list;
             case 78:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -1095,7 +1095,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -1108,7 +1108,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 6));
@@ -1128,14 +1128,14 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 9));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 10));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 11));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 12));
                 return luggage_list;
             case 82:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -1150,7 +1150,7 @@ namespace lro
                 return luggage_list;
             case 83:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -1169,7 +1169,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -1181,7 +1181,7 @@ namespace lro
             case 85:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -1194,7 +1194,7 @@ namespace lro
                 return luggage_list;
             case 86:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -1207,7 +1207,7 @@ namespace lro
                 return luggage_list;
             case 87:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -1221,7 +1221,7 @@ namespace lro
                 return luggage_list;
             case 88:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -1238,7 +1238,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
@@ -1251,7 +1251,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
@@ -1264,7 +1264,7 @@ namespace lro
                 return luggage_list;
             case 91:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
@@ -1277,7 +1277,7 @@ namespace lro
                 return luggage_list;
             case 92:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
@@ -1291,7 +1291,7 @@ namespace lro
                 return luggage_list;
             case 93:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -1304,7 +1304,7 @@ namespace lro
                 return luggage_list;
             case 94:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -1319,7 +1319,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
@@ -1335,7 +1335,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 6));
@@ -1345,7 +1345,7 @@ namespace lro
                 return luggage_list;
             case 97:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -1358,7 +1358,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 98:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -1375,7 +1375,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 3));
@@ -1386,7 +1386,7 @@ namespace lro
                 return luggage_list;
             case 100:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -1401,7 +1401,7 @@ namespace lro
                 return luggage_list;
             case 101:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -1416,7 +1416,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
@@ -1434,7 +1434,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 6));
@@ -1445,7 +1445,7 @@ namespace lro
                 return luggage_list;
             case 104:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -1461,7 +1461,7 @@ namespace lro
             case 105:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
@@ -1478,7 +1478,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
@@ -1489,7 +1489,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 107:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -1505,7 +1505,7 @@ namespace lro
                 return luggage_list;
             case 108:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -1521,7 +1521,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
@@ -1537,14 +1537,14 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 111:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
@@ -1561,7 +1561,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 6));
@@ -1573,7 +1573,7 @@ namespace lro
                 return luggage_list;
             case 113:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -1588,7 +1588,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
@@ -1601,7 +1601,7 @@ namespace lro
             case 115:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -1614,7 +1614,7 @@ namespace lro
                 return luggage_list;
             case 116:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -1632,7 +1632,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 3, 1));
@@ -1646,7 +1646,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -1658,7 +1658,7 @@ namespace lro
             case 119:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -1670,7 +1670,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 120:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 1));
@@ -1684,7 +1684,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 121:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -1703,7 +1703,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -1714,7 +1714,7 @@ namespace lro
                 return luggage_list;
             case 123:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -1728,7 +1728,7 @@ namespace lro
                 return luggage_list;
             case 124:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -1741,7 +1741,7 @@ namespace lro
                 return luggage_list;
             case 125:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -1759,7 +1759,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -1774,7 +1774,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 4));
@@ -1789,7 +1789,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 1));
@@ -1800,7 +1800,7 @@ namespace lro
                 return luggage_list;
             case 129:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
@@ -1815,7 +1815,7 @@ namespace lro
             case 130:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -1828,7 +1828,7 @@ namespace lro
                 return luggage_list;
             case 131:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -1843,7 +1843,7 @@ namespace lro
                 return luggage_list;
             case 132:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -1857,7 +1857,7 @@ namespace lro
                 return luggage_list;
             case 133:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -1870,7 +1870,7 @@ namespace lro
                 return luggage_list;
             case 134:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -1884,7 +1884,7 @@ namespace lro
                 return luggage_list;
             case 135:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -1897,7 +1897,7 @@ namespace lro
                 return luggage_list;
             case 136:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -1912,7 +1912,7 @@ namespace lro
                 return luggage_list;
             case 137:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -1926,7 +1926,7 @@ namespace lro
                 return luggage_list;
             case 138:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -1942,7 +1942,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
@@ -1959,7 +1959,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 6));
@@ -1968,7 +1968,7 @@ namespace lro
                 return luggage_list;
             case 141:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -1983,7 +1983,7 @@ namespace lro
                 return luggage_list;
             case 142:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -1999,7 +1999,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 3));
@@ -2014,7 +2014,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 4));
@@ -2030,7 +2030,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 2, 7));
@@ -2038,7 +2038,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 146:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -2053,7 +2053,7 @@ namespace lro
                 return luggage_list;
             case 147:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -2068,7 +2068,7 @@ namespace lro
                 return luggage_list;
             case 148:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -2083,7 +2083,7 @@ namespace lro
             case 149:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -2098,7 +2098,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 4));
@@ -2114,7 +2114,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 2));
@@ -2126,7 +2126,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -2145,7 +2145,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 3, 0));
@@ -2155,7 +2155,7 @@ namespace lro
                 return luggage_list;
             case 154:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -2168,7 +2168,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 0));
                 return luggage_list;
             case 155:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
@@ -2188,7 +2188,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 2));
@@ -2201,7 +2201,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 8));
@@ -2210,7 +2210,7 @@ namespace lro
                 return luggage_list;
             case 158:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -2228,7 +2228,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 6));
@@ -2244,7 +2244,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 7));
@@ -2255,7 +2255,7 @@ namespace lro
                 return luggage_list;
             case 161:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -2278,14 +2278,14 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 163:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -2300,7 +2300,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
@@ -2313,7 +2313,7 @@ namespace lro
                 return luggage_list;
             case 165:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -2327,7 +2327,7 @@ namespace lro
                 return luggage_list;
             case 166:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -2339,7 +2339,7 @@ namespace lro
                 return luggage_list;
             case 167:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -2355,7 +2355,7 @@ namespace lro
             case 168:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -2368,7 +2368,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 169:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -2388,7 +2388,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 7));
@@ -2398,7 +2398,7 @@ namespace lro
                 return luggage_list;
             case 171:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -2417,7 +2417,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
@@ -2428,7 +2428,7 @@ namespace lro
                 return luggage_list;
             case 173:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
@@ -2446,7 +2446,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 6));
@@ -2457,7 +2457,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 175:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -2476,7 +2476,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 7));
@@ -2486,7 +2486,7 @@ namespace lro
                 return luggage_list;
             case 177:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
@@ -2499,7 +2499,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 178:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -2515,7 +2515,7 @@ namespace lro
                 return luggage_list;
             case 179:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -2532,7 +2532,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 5));
@@ -2546,7 +2546,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -2560,7 +2560,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 0));
@@ -2577,7 +2577,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 3, 1));
@@ -2590,7 +2590,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -2603,7 +2603,7 @@ namespace lro
                 return luggage_list;
             case 185:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -2618,7 +2618,7 @@ namespace lro
                 return luggage_list;
             case 186:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -2638,7 +2638,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 6));
@@ -2648,7 +2648,7 @@ namespace lro
                 return luggage_list;
             case 188:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -2661,7 +2661,7 @@ namespace lro
                 return luggage_list;
             case 189:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -2684,7 +2684,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 8));
@@ -2692,7 +2692,7 @@ namespace lro
                 return luggage_list;
             case 191:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -2707,7 +2707,7 @@ namespace lro
             case 192:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -2726,7 +2726,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 7));
@@ -2740,7 +2740,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
@@ -2749,7 +2749,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 195:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
@@ -2764,7 +2764,7 @@ namespace lro
             case 196:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 1));
@@ -2779,7 +2779,7 @@ namespace lro
             case 197:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -2793,7 +2793,7 @@ namespace lro
             case 198:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -2808,7 +2808,7 @@ namespace lro
             case 199:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
@@ -2829,7 +2829,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 7));
@@ -2837,7 +2837,7 @@ namespace lro
                 return luggage_list;
             case 201:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -2851,7 +2851,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 202:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -2866,7 +2866,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 203:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
@@ -2881,7 +2881,7 @@ namespace lro
             case 204:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -2893,7 +2893,7 @@ namespace lro
                 return luggage_list;
             case 205:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -2908,7 +2908,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 206:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -2924,7 +2924,7 @@ namespace lro
             case 207:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -2938,7 +2938,7 @@ namespace lro
             case 208:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -2952,7 +2952,7 @@ namespace lro
                 return luggage_list;
             case 209:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -2972,7 +2972,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 8));
@@ -2983,7 +2983,7 @@ namespace lro
             case 211:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 3));
@@ -2996,7 +2996,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 212:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -3012,7 +3012,7 @@ namespace lro
                 return luggage_list;
             case 213:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -3030,7 +3030,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 3));
@@ -3042,7 +3042,7 @@ namespace lro
                 return luggage_list;
             case 215:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3059,7 +3059,7 @@ namespace lro
             case 216:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -3073,7 +3073,7 @@ namespace lro
             case 217:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
@@ -3086,7 +3086,7 @@ namespace lro
                 return luggage_list;
             case 218:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -3102,7 +3102,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
@@ -3115,7 +3115,7 @@ namespace lro
                 return luggage_list;
             case 220:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -3129,7 +3129,7 @@ namespace lro
                 return luggage_list;
             case 221:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -3142,7 +3142,7 @@ namespace lro
                 return luggage_list;
             case 222:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -3156,7 +3156,7 @@ namespace lro
                 return luggage_list;
             case 223:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3174,7 +3174,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -3188,7 +3188,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
@@ -3200,7 +3200,7 @@ namespace lro
                 return luggage_list;
             case 226:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -3214,7 +3214,7 @@ namespace lro
                 return luggage_list;
             case 227:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 1));
@@ -3235,7 +3235,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 8));
@@ -3245,7 +3245,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -3257,7 +3257,7 @@ namespace lro
                 return luggage_list;
             case 230:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -3271,7 +3271,7 @@ namespace lro
                 return luggage_list;
             case 231:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -3284,7 +3284,7 @@ namespace lro
                 return luggage_list;
             case 232:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3302,7 +3302,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
@@ -3315,7 +3315,7 @@ namespace lro
             case 234:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -3330,7 +3330,7 @@ namespace lro
             case 235:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -3345,7 +3345,7 @@ namespace lro
             case 236:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -3362,7 +3362,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 6));
@@ -3373,7 +3373,7 @@ namespace lro
                 return luggage_list;
             case 238:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
@@ -3388,7 +3388,7 @@ namespace lro
             case 239:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3403,7 +3403,7 @@ namespace lro
             case 240:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
@@ -3419,7 +3419,7 @@ namespace lro
             case 241:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -3431,7 +3431,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 242:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3451,7 +3451,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 7));
@@ -3461,7 +3461,7 @@ namespace lro
                 return luggage_list;
             case 244:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3484,7 +3484,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 1));
@@ -3494,7 +3494,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -3506,7 +3506,7 @@ namespace lro
                 return luggage_list;
             case 247:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3519,7 +3519,7 @@ namespace lro
                 return luggage_list;
             case 248:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -3534,7 +3534,7 @@ namespace lro
                 return luggage_list;
             case 249:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
@@ -3549,7 +3549,7 @@ namespace lro
                 return luggage_list;
             case 250:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -3565,7 +3565,7 @@ namespace lro
             case 251:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -3579,7 +3579,7 @@ namespace lro
             case 252:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -3592,7 +3592,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 253:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -3608,7 +3608,7 @@ namespace lro
                 return luggage_list;
             case 254:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -3622,7 +3622,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 255:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 3, 1));
@@ -3641,7 +3641,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
@@ -3651,7 +3651,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 257:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -3666,7 +3666,7 @@ namespace lro
                 return luggage_list;
             case 258:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 1));
@@ -3679,7 +3679,7 @@ namespace lro
                 return luggage_list;
             case 259:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3695,7 +3695,7 @@ namespace lro
                 return luggage_list;
             case 260:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -3708,7 +3708,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 261:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -3729,7 +3729,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 5));
@@ -3739,7 +3739,7 @@ namespace lro
                 return luggage_list;
             case 263:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -3752,7 +3752,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 9));
                 return luggage_list;
             case 264:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -3772,7 +3772,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 3, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 5));
@@ -3780,7 +3780,7 @@ namespace lro
                 return luggage_list;
             case 266:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3793,7 +3793,7 @@ namespace lro
                 return luggage_list;
             case 267:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3808,7 +3808,7 @@ namespace lro
                 return luggage_list;
             case 268:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3823,7 +3823,7 @@ namespace lro
                 return luggage_list;
             case 269:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3838,7 +3838,7 @@ namespace lro
                 return luggage_list;
             case 270:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -3853,7 +3853,7 @@ namespace lro
                 return luggage_list;
             case 271:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -3868,7 +3868,7 @@ namespace lro
             case 272:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -3881,7 +3881,7 @@ namespace lro
                 return luggage_list;
             case 273:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -3900,7 +3900,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -3913,7 +3913,7 @@ namespace lro
                 return luggage_list;
             case 275:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -3929,7 +3929,7 @@ namespace lro
             case 276:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -3941,7 +3941,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 277:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -3956,7 +3956,7 @@ namespace lro
                 return luggage_list;
             case 278:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -3970,7 +3970,7 @@ namespace lro
                 return luggage_list;
             case 279:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -3984,7 +3984,7 @@ namespace lro
                 return luggage_list;
             case 280:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -4001,7 +4001,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 2));
@@ -4011,7 +4011,7 @@ namespace lro
                 return luggage_list;
             case 282:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -4025,7 +4025,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 283:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -4044,7 +4044,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 6));
@@ -4059,7 +4059,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 4));
@@ -4071,7 +4071,7 @@ namespace lro
                 return luggage_list;
             case 286:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -4087,7 +4087,7 @@ namespace lro
             case 287:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
@@ -4102,7 +4102,7 @@ namespace lro
                 return luggage_list;
             case 288:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -4115,7 +4115,7 @@ namespace lro
                 return luggage_list;
             case 289:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -4129,7 +4129,7 @@ namespace lro
                 return luggage_list;
             case 290:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -4146,7 +4146,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
@@ -4159,7 +4159,7 @@ namespace lro
             case 292:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -4174,7 +4174,7 @@ namespace lro
             case 293:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -4191,7 +4191,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
@@ -4203,7 +4203,7 @@ namespace lro
             case 295:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -4216,7 +4216,7 @@ namespace lro
                 return luggage_list;
             case 296:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -4230,7 +4230,7 @@ namespace lro
                 return luggage_list;
             case 297:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -4245,7 +4245,7 @@ namespace lro
                 return luggage_list;
             case 298:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
@@ -4259,7 +4259,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
@@ -4270,7 +4270,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 300:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -4285,7 +4285,7 @@ namespace lro
                 return luggage_list;
             case 301:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
@@ -4302,7 +4302,7 @@ namespace lro
             case 302:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -4318,7 +4318,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 5));
@@ -4328,7 +4328,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 304:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -4345,7 +4345,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -4363,7 +4363,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 5));
@@ -4372,7 +4372,7 @@ namespace lro
                 return luggage_list;
             case 307:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -4386,7 +4386,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 308:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 1));
@@ -4405,7 +4405,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 5));
@@ -4417,7 +4417,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 4));
@@ -4430,7 +4430,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -4442,7 +4442,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 312:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -4458,7 +4458,7 @@ namespace lro
                 return luggage_list;
             case 313:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -4477,7 +4477,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 6));
@@ -4486,7 +4486,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 315:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -4506,7 +4506,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 0));
@@ -4521,7 +4521,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
@@ -4537,7 +4537,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 6));
@@ -4556,7 +4556,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 8));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 10));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 11));
@@ -4571,14 +4571,14 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 321:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -4596,7 +4596,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -4612,7 +4612,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 2));
@@ -4622,7 +4622,7 @@ namespace lro
                 return luggage_list;
             case 324:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -4644,7 +4644,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 10));
@@ -4652,7 +4652,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 0));
                 return luggage_list;
             case 326:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -4673,7 +4673,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -4689,7 +4689,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 5));
@@ -4699,7 +4699,7 @@ namespace lro
                 return luggage_list;
             case 329:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -4713,7 +4713,7 @@ namespace lro
                 return luggage_list;
             case 330:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -4727,7 +4727,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 331:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
@@ -4743,7 +4743,7 @@ namespace lro
                 return luggage_list;
             case 332:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -4762,7 +4762,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 6));
@@ -4772,7 +4772,7 @@ namespace lro
                 return luggage_list;
             case 334:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -4787,7 +4787,7 @@ namespace lro
                 return luggage_list;
             case 335:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -4804,7 +4804,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -4815,7 +4815,7 @@ namespace lro
                 return luggage_list;
             case 337:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
@@ -4830,7 +4830,7 @@ namespace lro
                 return luggage_list;
             case 338:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -4850,7 +4850,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 8));
@@ -4861,7 +4861,7 @@ namespace lro
                 return luggage_list;
             case 340:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -4875,7 +4875,7 @@ namespace lro
                 return luggage_list;
             case 341:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -4890,7 +4890,7 @@ namespace lro
                 return luggage_list;
             case 342:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -4903,7 +4903,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 343:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -4919,7 +4919,7 @@ namespace lro
                 return luggage_list;
             case 344:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -4936,7 +4936,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
@@ -4947,7 +4947,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 3, 1));
                 return luggage_list;
             case 346:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -4965,7 +4965,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 5));
@@ -4981,7 +4981,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 3, 1));
@@ -4993,7 +4993,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -5012,7 +5012,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 6));
@@ -5025,7 +5025,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 4));
@@ -5035,7 +5035,7 @@ namespace lro
                 return luggage_list;
             case 352:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -5050,7 +5050,7 @@ namespace lro
                 return luggage_list;
             case 353:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -5067,7 +5067,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
@@ -5080,7 +5080,7 @@ namespace lro
                 return luggage_list;
             case 355:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -5097,7 +5097,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 3, 2));
@@ -5107,7 +5107,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 357:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
@@ -5128,7 +5128,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 7));
@@ -5137,7 +5137,7 @@ namespace lro
                 return luggage_list;
             case 359:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -5152,7 +5152,7 @@ namespace lro
                 return luggage_list;
             case 360:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -5169,7 +5169,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 5));
@@ -5186,7 +5186,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 7));
@@ -5195,7 +5195,7 @@ namespace lro
                 return luggage_list;
             case 363:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -5209,7 +5209,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 364:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -5228,7 +5228,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 5));
@@ -5242,7 +5242,7 @@ namespace lro
                 return luggage_list;
             case 366:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
@@ -5256,7 +5256,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 367:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
@@ -5271,7 +5271,7 @@ namespace lro
             case 368:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
@@ -5288,7 +5288,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -5304,7 +5304,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 8));
@@ -5315,7 +5315,7 @@ namespace lro
                 return luggage_list;
             case 371:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 2));
@@ -5331,7 +5331,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 6));
@@ -5343,7 +5343,7 @@ namespace lro
             case 373:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
@@ -5356,7 +5356,7 @@ namespace lro
                 return luggage_list;
             case 374:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -5370,7 +5370,7 @@ namespace lro
                 return luggage_list;
             case 375:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -5385,7 +5385,7 @@ namespace lro
                 return luggage_list;
             case 376:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -5399,7 +5399,7 @@ namespace lro
                 return luggage_list;
             case 377:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 1));
@@ -5418,7 +5418,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 7));
@@ -5429,7 +5429,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 4));
@@ -5443,7 +5443,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 3));
@@ -5456,7 +5456,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
@@ -5469,7 +5469,7 @@ namespace lro
             case 382:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -5486,7 +5486,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
@@ -5497,7 +5497,7 @@ namespace lro
                 return luggage_list;
             case 384:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -5511,7 +5511,7 @@ namespace lro
                 return luggage_list;
             case 385:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 2));
@@ -5524,7 +5524,7 @@ namespace lro
                 return luggage_list;
             case 386:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -5539,7 +5539,7 @@ namespace lro
                 return luggage_list;
             case 387:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -5557,7 +5557,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 6));
@@ -5568,7 +5568,7 @@ namespace lro
             case 389:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -5586,7 +5586,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 6));
@@ -5596,7 +5596,7 @@ namespace lro
                 return luggage_list;
             case 391:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -5610,7 +5610,7 @@ namespace lro
                 return luggage_list;
             case 392:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 0));
@@ -5622,7 +5622,7 @@ namespace lro
                 return luggage_list;
             case 393:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -5636,7 +5636,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 394:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -5651,7 +5651,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 10));
                 return luggage_list;
             case 395:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -5664,7 +5664,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 396:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -5678,7 +5678,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 397:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -5693,7 +5693,7 @@ namespace lro
                 return luggage_list;
             case 398:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
@@ -5707,7 +5707,7 @@ namespace lro
                 return luggage_list;
             case 399:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -5726,7 +5726,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
@@ -5738,7 +5738,7 @@ namespace lro
             case 401:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -5751,7 +5751,7 @@ namespace lro
                 return luggage_list;
             case 402:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -5766,7 +5766,7 @@ namespace lro
                 return luggage_list;
             case 403:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -5786,7 +5786,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 8));
@@ -5795,7 +5795,7 @@ namespace lro
                 return luggage_list;
             case 405:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -5810,7 +5810,7 @@ namespace lro
                 return luggage_list;
             case 406:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -5824,7 +5824,7 @@ namespace lro
             case 407:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -5837,7 +5837,7 @@ namespace lro
                 return luggage_list;
             case 408:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -5852,7 +5852,7 @@ namespace lro
             case 409:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -5868,7 +5868,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 4));
@@ -5879,7 +5879,7 @@ namespace lro
             case 411:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 3));
@@ -5893,7 +5893,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 11));
                 return luggage_list;
             case 412:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
@@ -5912,7 +5912,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 4));
@@ -5922,7 +5922,7 @@ namespace lro
             case 414:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 3));
@@ -5939,7 +5939,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 3, 2));
@@ -5949,7 +5949,7 @@ namespace lro
                 return luggage_list;
             case 416:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
@@ -5963,7 +5963,7 @@ namespace lro
                 return luggage_list;
             case 417:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -5978,7 +5978,7 @@ namespace lro
             case 418:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -5996,7 +5996,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 8));
@@ -6008,7 +6008,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 4));
@@ -6026,7 +6026,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 6));
@@ -6034,7 +6034,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 422:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -6053,7 +6053,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
@@ -6068,7 +6068,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 1));
@@ -6079,7 +6079,7 @@ namespace lro
                 return luggage_list;
             case 425:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -6094,7 +6094,7 @@ namespace lro
                 return luggage_list;
             case 426:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
@@ -6107,7 +6107,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 427:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -6126,7 +6126,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
@@ -6136,7 +6136,7 @@ namespace lro
                 return luggage_list;
             case 429:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -6150,7 +6150,7 @@ namespace lro
                 return luggage_list;
             case 430:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -6170,7 +6170,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 7));
@@ -6179,7 +6179,7 @@ namespace lro
             case 432:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 2));
@@ -6192,7 +6192,7 @@ namespace lro
                 return luggage_list;
             case 433:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -6207,7 +6207,7 @@ namespace lro
             case 434:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -6219,7 +6219,7 @@ namespace lro
                 return luggage_list;
             case 435:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
@@ -6236,7 +6236,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 0));
@@ -6251,7 +6251,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
@@ -6262,7 +6262,7 @@ namespace lro
                 return luggage_list;
             case 438:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
@@ -6276,7 +6276,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 439:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
@@ -6291,7 +6291,7 @@ namespace lro
                 return luggage_list;
             case 440:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -6306,7 +6306,7 @@ namespace lro
                 return luggage_list;
             case 441:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -6320,7 +6320,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 442:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -6338,7 +6338,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
@@ -6351,7 +6351,7 @@ namespace lro
                 return luggage_list;
             case 444:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 2));
@@ -6364,7 +6364,7 @@ namespace lro
                 return luggage_list;
             case 445:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -6379,7 +6379,7 @@ namespace lro
             case 446:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -6396,7 +6396,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
@@ -6412,7 +6412,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -6428,7 +6428,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 8));
@@ -6438,7 +6438,7 @@ namespace lro
                 return luggage_list;
             case 450:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -6451,7 +6451,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 451:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -6469,7 +6469,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 2));
@@ -6483,7 +6483,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 4));
@@ -6497,7 +6497,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
@@ -6507,7 +6507,7 @@ namespace lro
                 return luggage_list;
             case 455:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -6529,7 +6529,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 7));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 8));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 10));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Horizontal, 2, 11));
@@ -6537,7 +6537,7 @@ namespace lro
                 return luggage_list;
             case 457:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -6555,7 +6555,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 6));
@@ -6567,7 +6567,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 3, 0));
@@ -6586,7 +6586,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 1), lro::Orientation::Horizontal, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 2), lro::Orientation::Vertical, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 10));
@@ -6595,7 +6595,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -6608,7 +6608,7 @@ namespace lro
                 return luggage_list;
             case 462:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
@@ -6627,7 +6627,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 5));
@@ -6636,7 +6636,7 @@ namespace lro
                 return luggage_list;
             case 464:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -6651,7 +6651,7 @@ namespace lro
                 return luggage_list;
             case 465:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
@@ -6669,7 +6669,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -6680,7 +6680,7 @@ namespace lro
             case 467:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 1));
@@ -6698,7 +6698,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 6));
@@ -6707,7 +6707,7 @@ namespace lro
                 return luggage_list;
             case 469:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -6720,7 +6720,7 @@ namespace lro
                 return luggage_list;
             case 470:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -6739,7 +6739,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 6));
@@ -6750,7 +6750,7 @@ namespace lro
                 return luggage_list;
             case 472:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 1));
@@ -6764,7 +6764,7 @@ namespace lro
                 return luggage_list;
             case 473:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -6776,7 +6776,7 @@ namespace lro
                 return luggage_list;
             case 474:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
@@ -6789,7 +6789,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 4), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 475:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -6810,7 +6810,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -6823,7 +6823,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
@@ -6835,7 +6835,7 @@ namespace lro
                 return luggage_list;
             case 478:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 2));
@@ -6849,7 +6849,7 @@ namespace lro
                 return luggage_list;
             case 479:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -6867,7 +6867,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
@@ -6879,7 +6879,7 @@ namespace lro
                 return luggage_list;
             case 481:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -6892,7 +6892,7 @@ namespace lro
                 return luggage_list;
             case 482:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -6906,7 +6906,7 @@ namespace lro
                 return luggage_list;
             case 483:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 0));
@@ -6922,7 +6922,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
@@ -6938,7 +6938,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 6));
@@ -6950,7 +6950,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
@@ -6964,7 +6964,7 @@ namespace lro
                 return luggage_list;
             case 487:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -6979,7 +6979,7 @@ namespace lro
                 return luggage_list;
             case 488:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -6993,7 +6993,7 @@ namespace lro
                 return luggage_list;
             case 489:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
@@ -7006,7 +7006,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 7));
                 return luggage_list;
             case 490:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 2));
@@ -7021,7 +7021,7 @@ namespace lro
                 return luggage_list;
             case 491:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -7034,7 +7034,7 @@ namespace lro
                 return luggage_list;
             case 492:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -7051,7 +7051,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 4));
@@ -7065,7 +7065,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 5), lro::Orientation::Horizontal, 2, 3));
@@ -7078,7 +7078,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 5));
@@ -7091,7 +7091,7 @@ namespace lro
                 return luggage_list;
             case 496:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -7103,7 +7103,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 3, 2));
                 return luggage_list;
             case 497:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -7121,7 +7121,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
@@ -7133,7 +7133,7 @@ namespace lro
                 return luggage_list;
             case 499:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 3, 0));
@@ -7150,7 +7150,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 5));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Horizontal, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 1), lro::Orientation::Vertical, 2, 7));
@@ -7158,7 +7158,7 @@ namespace lro
                 return luggage_list;
             case 501:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -7176,7 +7176,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Horizontal, 2, 5));
@@ -7184,7 +7184,7 @@ namespace lro
                 return luggage_list;
             case 503:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -7199,7 +7199,7 @@ namespace lro
             case 504:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 1));
@@ -7214,7 +7214,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 3));
@@ -7225,7 +7225,7 @@ namespace lro
                 return luggage_list;
             case 506:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
@@ -7239,7 +7239,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 0), lro::Orientation::Vertical, 2, 9));
                 return luggage_list;
             case 507:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 3, 0));
@@ -7256,7 +7256,7 @@ namespace lro
                 return luggage_list;
             case 508:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
@@ -7276,7 +7276,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 5), lro::Orientation::Horizontal, 2, 7));
@@ -7285,7 +7285,7 @@ namespace lro
                 return luggage_list;
             case 510:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
@@ -7300,7 +7300,7 @@ namespace lro
             case 511:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
@@ -7315,7 +7315,7 @@ namespace lro
             case 512:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));
@@ -7329,7 +7329,7 @@ namespace lro
             case 513:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 2));
@@ -7345,7 +7345,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 3, 1));
@@ -7358,7 +7358,7 @@ namespace lro
             case 515:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -7374,7 +7374,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 5));
@@ -7383,7 +7383,7 @@ namespace lro
                 return luggage_list;
             case 517:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
@@ -7398,7 +7398,7 @@ namespace lro
             case 518:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 3, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 2));
@@ -7413,7 +7413,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 4));
@@ -7426,7 +7426,7 @@ namespace lro
             case 520:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -7442,7 +7442,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Vertical, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Horizontal, 2, 5));
@@ -7454,7 +7454,7 @@ namespace lro
                 return luggage_list;
             case 522:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
@@ -7468,7 +7468,7 @@ namespace lro
                 return luggage_list;
             case 523:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -7484,7 +7484,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), lro::Orientation::Vertical, 2, 4));
@@ -7497,7 +7497,7 @@ namespace lro
                 return luggage_list;
             case 525:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -7515,7 +7515,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 5));
@@ -7525,7 +7525,7 @@ namespace lro
                 return luggage_list;
             case 527:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Horizontal, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -7545,7 +7545,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 5), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -7556,7 +7556,7 @@ namespace lro
                 return luggage_list;
             case 529:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 2));
@@ -7571,7 +7571,7 @@ namespace lro
                 return luggage_list;
             case 530:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 2));
@@ -7589,7 +7589,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Horizontal, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 3), lro::Orientation::Vertical, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 2), lro::Orientation::Vertical, 2, 6));
@@ -7598,7 +7598,7 @@ namespace lro
                 return luggage_list;
             case 532:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 5), lro::Orientation::Horizontal, 2, 2));
@@ -7615,7 +7615,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 1), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Horizontal, 2, 5));
@@ -7628,7 +7628,7 @@ namespace lro
                 return luggage_list;
             case 534:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
@@ -7643,7 +7643,7 @@ namespace lro
                 return luggage_list;
             case 535:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
@@ -7657,7 +7657,7 @@ namespace lro
                 return luggage_list;
             case 536:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -7672,7 +7672,7 @@ namespace lro
                 return luggage_list;
             case 537:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 2));
@@ -7688,7 +7688,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 1), lro::Orientation::Vertical, 2, 4));
@@ -7699,7 +7699,7 @@ namespace lro
                 return luggage_list;
             case 539:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
@@ -7720,7 +7720,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 3), lro::Orientation::Vertical, 2, 6));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 7));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 4), lro::Orientation::Vertical, 2, 8));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 0), lro::Orientation::Vertical, 2, 9));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(4, 4), lro::Orientation::Horizontal, 2, 10));
@@ -7728,7 +7728,7 @@ namespace lro
                 return luggage_list;
             case 541:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 1));
@@ -7742,7 +7742,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(5, 3), lro::Orientation::Vertical, 2, 8));
                 return luggage_list;
             case 542:
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 1));
@@ -7757,7 +7757,7 @@ namespace lro
                 return luggage_list;
             case 543:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
@@ -7771,7 +7771,7 @@ namespace lro
             case 544:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), lro::Orientation::Vertical, 2, 1));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Vertical, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Vertical, 2, 3));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Horizontal, 2, 4));
@@ -7784,7 +7784,7 @@ namespace lro
                 return luggage_list;
             case 545:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Vertical, 2, 3));
@@ -7799,7 +7799,7 @@ namespace lro
                 return luggage_list;
             case 546:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 4), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 2));
@@ -7817,7 +7817,7 @@ namespace lro
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 5), lro::Orientation::Horizontal, 2, 2));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 2, 3));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 2, 4));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 4), lro::Orientation::Vertical, 2, 5));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(3, 0), lro::Orientation::Vertical, 2, 6));
@@ -7829,7 +7829,7 @@ namespace lro
                 return luggage_list;
             case 548:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 1), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 4), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 0), lro::Orientation::Horizontal, 2, 1));
@@ -7844,7 +7844,7 @@ namespace lro
                 return luggage_list;
             case 549:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Horizontal, 3, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 3), lro::Orientation::Vertical, 2, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 3), lro::Orientation::Horizontal, 3, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Vertical, 2, 1));
@@ -7857,7 +7857,7 @@ namespace lro
                 return luggage_list;
             case 550:
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 0), lro::Orientation::Vertical, 2, 0));
-                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true));
+                luggage_list.push_back(lro::Luggage(bn::fixed_point(0, 2), true, is_alt));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(1, 0), lro::Orientation::Horizontal, 3, 0));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 1), lro::Orientation::Horizontal, 2, 1));
                 luggage_list.push_back(lro::Luggage(bn::fixed_point(2, 2), lro::Orientation::Vertical, 2, 2));

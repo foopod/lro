@@ -2,6 +2,7 @@
 #define LRO_SCENE_GAME_H
 
 #include "lro_scene.h"
+#include "lro_state.h"
 
 #include "bn_fixed_point.h"
 #include "bn_sprite_text_generator.h"
@@ -14,9 +15,10 @@ namespace lro
     {       
         private:
             bn::sprite_text_generator* _text_generator;
+            State* _state;
 
         public:
-            Game(bn::sprite_text_generator& text_generator);
+            Game(bn::sprite_text_generator& text_generator, State& state);
             int execute(int level);
             bn::optional<bn::blending_fade_alpha_to_action> _fade_action;
             void fade_out();

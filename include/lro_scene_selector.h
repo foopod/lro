@@ -5,6 +5,7 @@
 
 #include "lro_scene.h"
 #include "lro_rank.h"
+#include "lro_state.h"
 #include "bn_fixed_point.h"
 #include "bn_blending_actions.h"
 #include "bn_optional.h"
@@ -15,8 +16,9 @@ namespace lro
     {       
         private:
             bn::sprite_text_generator* _text_generator;
+            State* _state;
         public:
-            Selector(bn::sprite_text_generator& text_generator);
+            Selector(bn::sprite_text_generator& text_generator, State& state);
             int execute(lro::Rank rank);
             bn::optional<bn::blending_fade_alpha_to_action> _fade_action;
             void fade_out(bn::blending::fade_color_type color);

@@ -2,6 +2,7 @@
 #define LRO_SCENE_MENU_H
 
 #include "lro_scene.h"
+#include "lro_state.h"
 
 #include "bn_fixed_point.h"
 #include "bn_sprite_text_generator.h"
@@ -14,8 +15,9 @@ namespace lro
     {       
         private:
             bn::sprite_text_generator* _text_generator;
+            State* _state;
         public:
-            Menu(bn::sprite_text_generator& text_generator);
+            Menu(bn::sprite_text_generator& text_generator, State& state);
             Scene execute();
             bn::optional<bn::blending_fade_alpha_to_action> _fade_action;
             void fade_out();

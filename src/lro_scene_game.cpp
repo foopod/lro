@@ -26,8 +26,8 @@
 
 namespace lro
 {
-    Game::Game(bn::sprite_text_generator& text_generator)
-    : _text_generator(&text_generator){}
+    Game::Game(bn::sprite_text_generator& text_generator, State& state)
+    : _text_generator(&text_generator), _state(&state){}
 
     void Game::fade_out()
     {
@@ -67,20 +67,19 @@ namespace lro
 
     int Game::execute(int level)
     {
-        State state;
         bn::regular_bg_ptr bg = bn::regular_bg_items::dialog.create_bg(0, 0);
 
         bn::vector<DialogLine, 32> dialog_lines = lro::DialogLines().get_dialog_lines(level);
         bn::optional<Dialog> dialog = lro::Dialog(dialog_lines, *_text_generator);
         dialog.value().set_visible(true);
 
-        while (!dialog.value().done() && state.get_last_completed_level() < level && level <=50){ // remove dialog for completed levels
+        while (!dialog.value().done() && _state->get_last_completed_level() < level && level <=50){ // remove dialog for completed levels
             dialog.value().update();
             bn::core::update();
         }
         dialog.reset();
 
-        lro::Player player = lro::Player(level);
+        lro::Player player = lro::Player(level, *_state);
 
         if(level <=50){
             bg = bn::regular_bg_items::bg.create_bg(0, 0);
@@ -96,7 +95,7 @@ namespace lro
         int count_after_finish = 0;
         int best_moves = 99;
         if(level > 50){
-            best_moves = state.get_best_min_moves_list().at(level - 51);
+            best_moves = _state->get_best_min_moves_list().at(level - 51);
         }
 
         lro::Levels levels;
@@ -143,7 +142,7 @@ namespace lro
             if (!done.visible() && player.has_finished(level))
             {
                 done.set_visible(true);
-                bn::sound_items::trumpet.play();
+                bn::sound_items::success.play();
             }
 
             if(done.visible()){

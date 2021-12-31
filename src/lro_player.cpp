@@ -55,10 +55,11 @@ namespace lro {
     }
     }
 
-    Player::Player(int level)
+    Player::Player(int level, State& state):
+    _state(&state)
     {
-        // bn::vector<Luggage, 16> luggage_list = lro::Levels().get_luggage(level);
-        _luggage_list = lro::Levels().get_luggage(level);
+
+        _luggage_list = lro::Levels().get_luggage(level, _state->is_alt_colour());
         _cursor_sprite.set_position(gridToScreen(_cursor_pos));
         _cursor_sprite.put_above();
         _cursor_sprite.set_blending_enabled(true);
@@ -66,14 +67,14 @@ namespace lro {
 
     bool Player::has_finished(int level){
         if(_has_finished){
-            if(level > _state.get_last_completed_level() && level < 51){
-                _state.completeLevel(level);
+            if(level > _state->get_last_completed_level() && level < 51){
+                _state->completeLevel(level);
             }
             if(level > 50){
                 _moves_so_far+=1;
-                if(_moves_so_far < _state.get_best_min_moves_list().at(level-51) ||
-                    _state.get_best_min_moves_list().at(level-51) == 0){
-                    _state.set_best_min_move(level-51, _moves_so_far);
+                if(_moves_so_far < _state->get_best_min_moves_list().at(level-51) ||
+                    _state->get_best_min_moves_list().at(level-51) == 0){
+                    _state->set_best_min_move(level-51, _moves_so_far);
                 }
             }
         }
@@ -129,6 +130,7 @@ namespace lro {
 
                     // finished
                     if(_luggage_list.at(_selected).is_target() && _luggage_list.at(_selected).pos().x() == 4){
+                        _locked = true;
                         _slide_action = _luggage_list.at(_selected).slide_to_end();
                         _done = true;
                     } 
@@ -190,7 +192,7 @@ namespace lro {
             }
         }
         
-        if(bn::keypad::a_pressed() && !_locked){
+        if(bn::keypad::a_pressed() && !_locked && !_done){
             if(_cursor_sprite.visible()){
                 int tmp_luggage = get_luggage_at_pos(_cursor_pos, _luggage_list);
                 if(tmp_luggage >= 0){

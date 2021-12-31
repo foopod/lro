@@ -22,8 +22,8 @@
 #include "bn_sound_items.h"
 
 namespace lro {
-    Selector::Selector(bn::sprite_text_generator& text_generator)
-    : _text_generator(&text_generator){}
+    Selector::Selector(bn::sprite_text_generator& text_generator, State& state)
+    : _text_generator(&text_generator), _state(&state){}
 
     namespace{
     [[nodiscard]] bn::fixed_point get_cursor_pos(int selected)
@@ -80,10 +80,8 @@ namespace lro {
         }
         bg.value().set_blending_enabled(true);
         
-
-        State state;
         int selected = 0;
-        int current = state.get_last_completed_level();
+        int current = _state->get_last_completed_level();
         if(current >=startingLevel && current < startingLevel + 10){
             selected = current % 10;
         } else if(current < startingLevel){
@@ -102,7 +100,7 @@ namespace lro {
         _text_generator->set_center_alignment();
 
         // get state from sram
-        int done_levels = state.get_last_completed_level();
+        int done_levels = _state->get_last_completed_level();
         int difficulty_sprite = 1 + startingLevel/10;
 
         // draw boxes and labels
@@ -149,7 +147,7 @@ namespace lro {
             }
 
             if(bn::keypad::a_pressed()){
-                if(selected+startingLevel-1 < state.get_last_completed_level() + 1){ //todo remove true block levels
+                if(selected+startingLevel-1 < _state->get_last_completed_level() + 1){ //todo remove true block levels
                     bn::sound_items::luggage_2.play();
                     fade_out(bn::blending::fade_color_type::BLACK);
                     return selected+startingLevel;

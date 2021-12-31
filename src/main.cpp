@@ -32,6 +32,7 @@ int main()
     
     lro::Scene scene = lro::Scene::Credits;
     lro::State state;
+    state.init();
     
     // unlock all levels
     // state.completeLevel(50);
@@ -48,7 +49,7 @@ int main()
         {
             lro::Title title = lro::Title();
             if(!music_started){
-                bn::music_items::meloutest3.play(1, true);
+                bn::music_items::lro_theme.play(1, true);
                 music_started = true;
             }
             scene = title.execute();
@@ -65,13 +66,13 @@ int main()
         }
         else if (scene == lro::Scene::LevelSelect)
         {
-            lro::LevelSelect level = lro::LevelSelect(text_generator);
+            lro::LevelSelect level = lro::LevelSelect(text_generator, state);
             scene = level.execute();
             current_level = -1;
         }
         else if (scene == lro::Scene::SelectTraining)
         {
-            lro::Selector level = lro::Selector(text_generator);
+            lro::Selector level = lro::Selector(text_generator, state);
             current_level = level.execute(lro::Rank::Trainee);
             if(current_level == 0){
                 scene = lro::Scene::LevelSelect;
@@ -81,7 +82,7 @@ int main()
         }
         else if (scene == lro::Scene::SelectRecruit)
         {
-            lro::Selector level = lro::Selector(text_generator);
+            lro::Selector level = lro::Selector(text_generator, state);
             current_level = level.execute(lro::Rank::Recruit);
             if(current_level == 0){
                 scene = lro::Scene::LevelSelect;
@@ -91,7 +92,7 @@ int main()
         }
         else if (scene == lro::Scene::SelectSenior)
         {
-            lro::Selector level = lro::Selector(text_generator);
+            lro::Selector level = lro::Selector(text_generator, state);
             current_level = level.execute(lro::Rank::Senior);
             if(current_level == 0){
                 scene = lro::Scene::LevelSelect;
@@ -101,7 +102,7 @@ int main()
         }
         else if (scene == lro::Scene::SelectExpert)
         {
-            lro::Selector level = lro::Selector(text_generator);
+            lro::Selector level = lro::Selector(text_generator, state);
             current_level = level.execute(lro::Rank::Expert);
             if(current_level == 0){
                 scene = lro::Scene::LevelSelect;
@@ -111,7 +112,7 @@ int main()
         }
         else if (scene == lro::Scene::SelectOfficer)
         {
-            lro::Selector level = lro::Selector(text_generator);
+            lro::Selector level = lro::Selector(text_generator, state);
             current_level = level.execute(lro::Rank::Officer);
             if(current_level == 0){
                 scene = lro::Scene::LevelSelect;
@@ -121,7 +122,7 @@ int main()
         }
         else if (scene == lro::Scene::LEVEL)
         {
-            lro::Game level = lro::Game(text_generator);
+            lro::Game level = lro::Game(text_generator, state);
             current_level = level.execute(current_level);
             if(current_level % 10 == 0 && current_level < 51){
                 scene = lro::Scene::LevelSelect;
@@ -152,13 +153,13 @@ int main()
         }
         else if (scene == lro::Scene::Academy)
         {
-            lro::Academy academy = lro::Academy(text_generator);
+            lro::Academy academy = lro::Academy(text_generator, state);
             current_level = academy.execute(current_level);
             scene = lro::Scene::LEVEL;
         }
         else if (scene == lro::Scene::Menu)
         {
-            lro::Menu menu = lro::Menu(text_generator);
+            lro::Menu menu = lro::Menu(text_generator, state);
             scene = menu.execute();
             current_level = -1;
         }

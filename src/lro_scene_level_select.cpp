@@ -29,8 +29,8 @@ namespace lro {
         return bn::fixed_point(sx, sy);
     }
 
-    LevelSelect::LevelSelect(bn::sprite_text_generator& text_generator)
-    : _text_generator(&text_generator){}
+    LevelSelect::LevelSelect(bn::sprite_text_generator& text_generator, State& state)
+    : _text_generator(&text_generator), _state(&state){}
 
 
     void LevelSelect::fade_out()
@@ -51,8 +51,6 @@ namespace lro {
 
         int selected = 0;
         int max_levels = 5;
-
-        State state;
         int offset = 0;
 
         bn::vector<bn::sprite_ptr, 32> labels;
@@ -98,7 +96,7 @@ namespace lro {
                     59,60,61,62,63);
         black_suitcase.set_visible(false);
 
-        int max_level = state.get_last_completed_level();
+        int max_level = _state->get_last_completed_level();
 
         if( max_level < 10){
 
@@ -189,12 +187,12 @@ namespace lro {
             if(bn::keypad::a_pressed()){
                 switch(selected){
                     case 0 : 
-                        bn::sound_items::luggage.play();
+                        bn::sound_items::luggage_2.play();
                         fade_out();
                         return Scene::SelectTraining;
                     case 1 : 
                         if(max_level > 9){
-                            bn::sound_items::luggage.play();
+                            bn::sound_items::luggage_2.play();
                             fade_out();
                             return Scene::SelectRecruit;
                         } else {
@@ -203,7 +201,7 @@ namespace lro {
                         break;
                     case 2 : 
                         if(max_level > 19){
-                            bn::sound_items::luggage.play();
+                            bn::sound_items::luggage_2.play();
                             fade_out();
                             return Scene::SelectSenior;
                         } else {
@@ -212,7 +210,7 @@ namespace lro {
                         break;
                     case 3 : 
                         if(max_level > 29){
-                            bn::sound_items::luggage.play();
+                            bn::sound_items::luggage_2.play();
                             fade_out();
                             return Scene::SelectExpert;
                         } else {
@@ -221,7 +219,7 @@ namespace lro {
                         break;
                     case 4 : 
                         if(max_level > 39){
-                            bn::sound_items::luggage.play();
+                            bn::sound_items::luggage_2.play();
                             fade_out();
                             return Scene::SelectOfficer;
                         } else {
@@ -235,7 +233,7 @@ namespace lro {
             }
 
             if(bn::keypad::b_pressed()){
-                bn::sound_items::luggage.play();
+                bn::sound_items::luggage_2.play();
                 fade_out();
                 return Scene::Menu;
             }

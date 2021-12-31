@@ -30,8 +30,8 @@ namespace lro
         }
     }
 
-    Menu::Menu(bn::sprite_text_generator &text_generator)
-        : _text_generator(&text_generator) {}
+    Menu::Menu(bn::sprite_text_generator& text_generator, State& state)
+        : _text_generator(&text_generator), _state(&state) {}
 
     void Menu::fade_out()
     {
@@ -55,15 +55,13 @@ namespace lro
 
         int alt_colour = false;
 
-        State state;
-
         bn::vector<bn::sprite_ptr, 32> labels;
         bn::vector<bn::sprite_ptr, 32> alt_label;
 
         _text_generator->set_left_alignment();
         _text_generator->generate(-40, 0, "Story", labels);
         _text_generator->generate(-40, 12, "Arcade", labels);
-        if (state.is_alt_colour())
+        if (_state->is_alt_colour())
         {
             alt_colour = true;
             _text_generator->generate(-40, 24, "Alt Art: ON", alt_label);
@@ -90,7 +88,7 @@ namespace lro
         bn::sprite_ptr lock_arcade = bn::sprite_items::lock.create_sprite(-48, 12, 1);
         lock_arcade.set_blending_enabled(true);
 
-        if (state.get_last_completed_level() >= 10)
+        if (_state->get_last_completed_level() >= 10)
         {
             lock_arcade.set_visible(false);
         }
@@ -136,21 +134,21 @@ namespace lro
                 switch (selected)
                 {
                 case 0:
-                    bn::sound_items::luggage.play();
+                    bn::sound_items::luggage_2.play();
                     fade_out();
                     return Scene::LevelSelect;
                 case 1:
-                    if (state.get_last_completed_level() >= 10)
+                    if (_state->get_last_completed_level() >= 10)
                     {
-                        bn::sound_items::luggage.play();
+                        bn::sound_items::luggage_2.play();
                         fade_out();
                         return Scene::Academy;
                     }
                     break;
                 case 2:
-                    bn::sound_items::luggage.play();
+                    bn::sound_items::luggage_2.play();
                     _text_generator->set_left_alignment();
-                    state.set_alt_colour(!alt_colour);
+                    _state->set_alt_colour(!alt_colour);
                     alt_colour = !alt_colour;
                     alt_label.clear();
                     if (alt_colour)
@@ -166,7 +164,7 @@ namespace lro
                     }
                     break;
                 case 3:
-                    bn::sound_items::luggage.play();
+                    bn::sound_items::luggage_2.play();
                     fade_out();
                     return Scene::Tutorial;
                 default:
