@@ -142,7 +142,7 @@ namespace lro
             if (!done.visible() && player.has_finished(level))
             {
                 done.set_visible(true);
-                bn::sound_items::success.play();
+                bn::sound_items::success3.play();
             }
 
             if(done.visible()){
