@@ -1,0 +1,11 @@
+audio/lro-theme.it
+Licensed to Jono Shields, only for use in LRO: Luggage Retrieval Officer.
+All Rights Reserved. Copyright Tempest.
+https://soundcloud.com/janne-suni
+
+title2.bmp, title_text.bmp, luggage_trolley.bmp and plane.bmp
+Licensed under WTFPL (https://en.m.wikipedia.org/wiki/WTFPL)
+Created by Vent - https://csdb.dk/scener/?id=1073
+
+All other graphics and sound are Public Domain and licensed under CCO.
+https://creativecommons.org/share-your-work/public-domain/cc0/
