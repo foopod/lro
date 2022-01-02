@@ -2,9 +2,86 @@
 #define LRO_LEVELS_H
 
 #include "bn_vector.h"
+#include "bn_string.h"
+#include "bn_log.h"
 
 namespace lro
 {
+    namespace{
+        [[nodiscard]] char getCharAtXY(bn::string<36> str, int x, int y){
+            if(x > 5 || y > 5){
+                return 'o';
+            }
+            int index = x;
+            index += y*6;
+            // BN_LOG("index");
+            // BN_LOG(index);
+            return str[index];
+        };
+
+        [[nodiscard]] bn::vector<Luggage, 16> get_luggage_from_string(bn::string<36> str, bool is_alt){
+            bn::vector<Luggage, 16> luggage_list = {};
+            // BN_LOG("start");
+            
+            int lorry_count = 0;
+            int car_count = 0;
+            bn::vector<char, 32> values_seen = {};
+            for(int x = 0; x < 6; x++){
+                for(int y = 0; y < 6; y++){
+                    // BN_LOG("----------");
+                    // BN_LOG(x);
+                    // BN_LOG(y);
+                    char value = getCharAtXY(str, x, y);
+                    BN_LOG(value);
+                    if(value != 'o'){
+                        // check if seen before
+                        bool seen = false;
+                        for(int i = 0; i < values_seen.size(); i++){
+                            if(value == values_seen.at(i)){
+                                seen = true;
+                            }
+                        }
+                        if(!seen){
+                            char rightChar = getCharAtXY(str, x+1, y);
+                            char downChar = getCharAtXY(str, x, y+1);
+                            // horizontal
+                            if(rightChar == value){
+                                //3 long
+                                if(getCharAtXY(str, x+2, y) == value){
+                                    //todo add horizontal lorry
+                                    luggage_list.push_back(lro::Luggage(bn::fixed_point(x,y), lro::Orientation::Horizontal, 3, lorry_count));
+                                    lorry_count+=1;
+                                } else { // 2 long
+                                    if(value == 'A'){ //target car
+                                        //todo add target car
+                                        luggage_list.push_back(lro::Luggage(bn::fixed_point(x, y), true, is_alt));
+                                    } else {
+                                        //todo add horizontal car
+                                        luggage_list.push_back(lro::Luggage(bn::fixed_point(x,y), lro::Orientation::Horizontal, 2, car_count));
+                                        car_count+=1;
+                                    }
+                                }
+                            } else if(downChar == value){
+                                //3 long
+                                if(getCharAtXY(str, x, y+2) == value){
+                                    //todo add vertical lorry
+                                    luggage_list.push_back(lro::Luggage(bn::fixed_point(x,y), lro::Orientation::Vertical, 3, lorry_count));
+                                    lorry_count+=1;
+                                } else { // 2 long
+                                    //todo add vertical car
+                                    luggage_list.push_back(lro::Luggage(bn::fixed_point(x,y), lro::Orientation::Vertical, 2, car_count));
+                                    car_count+=1;
+                                }
+                            }
+                            values_seen.push_back(value);
+                        }
+                    }
+                }
+            }
+            return luggage_list;
+        }
+    }
+
     class Levels
     {
     public:

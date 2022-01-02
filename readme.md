@@ -4,8 +4,13 @@
 
 + Make an Options Menu
     + Brightness
-+ Add better sound effects
-+ Add Stamp effect for grades
++ Add Stamp effect for grade scoring
++ Rethink game background
++ Reprocess levels, original 50 should be more achievable, ideally only 40-50 are really hard.
++ Arcade levels should start off a lot easier
++ Menu's should be more "on theme"
++ Load puzzle from string -> BBBJooooIJCCAAIoKLGHDDKLGHEEKMFFoooM
+
 
 ## Puzzle Source
 
